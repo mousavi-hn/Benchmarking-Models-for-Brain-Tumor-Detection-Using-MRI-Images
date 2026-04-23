@@ -1,0 +1,1030 @@
+"/home/hossein/Documents/BSc.BME/Project and Thesis/Project lab/.venv/bin/python" /home/hossein/Documents/BSc.BME/Project and Thesis/Project lab/code/MRI_CNN.py 
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1776012764.021081 1755307 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Total images: 13188
+class_name
+no     6994
+yes    6194
+Name: count, dtype: int64
+Train label counts:
+ class_name
+no     4894
+yes    4336
+Name: count, dtype: int64
+Val label counts:
+ class_name
+no     1050
+yes     929
+Name: count, dtype: int64
+Test label counts:
+ class_name
+no     1050
+yes     929
+Name: count, dtype: int64
+Train IXI subjects: 1074
+Val IXI subjects: 230
+Test IXI subjects: 231
+
+============================================================
+Training model: VGG16
+============================================================
+Found 9230 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+W0000 00:00:1776012766.088952 1755307 gpu_device.cc:2365] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+Epoch 1/8
+I0000 00:00:1776012767.053603 1755307 generator_dataset_op.cc:213] Memory patch applied: M_TRIM_THRESHOLD=128 kb was set.
+W0000 00:00:1776012768.423154 1755357 cpu_allocator_impl.cc:82] Allocation of 411041792 exceeds 10% of free system memory.
+W0000 00:00:1776012768.528824 1755357 cpu_allocator_impl.cc:82] Allocation of 411041792 exceeds 10% of free system memory.
+  1/289 ━━━━━━━━━━━━━━━━━━━━ 32:48 7s/step - accuracy: 0.4375 - loss: 2.6446W0000 00:00:1776012773.880194 1755359 cpu_allocator_impl.cc:82] Allocation of 411041792 exceeds 10% of free system memory.
+W0000 00:00:1776012774.032648 1755359 cpu_allocator_impl.cc:82] Allocation of 411041792 exceeds 10% of free system memory.
+  2/289 ━━━━━━━━━━━━━━━━━━━━ 26:40 6s/step - accuracy: 0.4609 - loss: 2.3866W0000 00:00:1776012779.455978 1755360 cpu_allocator_impl.cc:82] Allocation of 411041792 exceeds 10% of free system memory.
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 6s/step - accuracy: 0.8841 - loss: 0.4065
+Epoch 1: val_loss improved from None to 0.08228, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1957s 7s/step - accuracy: 0.9252 - loss: 0.2426 - val_accuracy: 0.9707 - val_loss: 0.0823 - learning_rate: 0.0010
+Epoch 2/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 6s/step - accuracy: 0.9510 - loss: 0.1465
+Epoch 2: val_loss improved from 0.08228 to 0.06527, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+
+Epoch 2: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1938s 7s/step - accuracy: 0.9554 - loss: 0.1286 - val_accuracy: 0.9763 - val_loss: 0.0653 - learning_rate: 0.0010
+Epoch 3/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 6s/step - accuracy: 0.9596 - loss: 0.1104
+Epoch 3: val_loss did not improve from 0.06527
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1937s 7s/step - accuracy: 0.9598 - loss: 0.1078 - val_accuracy: 0.9752 - val_loss: 0.0666 - learning_rate: 0.0010
+Epoch 4/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 6s/step - accuracy: 0.9639 - loss: 0.0936
+Epoch 4: val_loss improved from 0.06527 to 0.05391, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+
+Epoch 4: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1939s 7s/step - accuracy: 0.9637 - loss: 0.0930 - val_accuracy: 0.9793 - val_loss: 0.0539 - learning_rate: 0.0010
+Epoch 5/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 6s/step - accuracy: 0.9685 - loss: 0.0870
+Epoch 5: val_loss did not improve from 0.05391
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1936s 7s/step - accuracy: 0.9677 - loss: 0.0869 - val_accuracy: 0.9803 - val_loss: 0.0590 - learning_rate: 0.0010
+Epoch 6/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 6s/step - accuracy: 0.9687 - loss: 0.0834
+Epoch 6: val_loss improved from 0.05391 to 0.04536, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+
+Epoch 6: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1936s 7s/step - accuracy: 0.9692 - loss: 0.0820 - val_accuracy: 0.9838 - val_loss: 0.0454 - learning_rate: 0.0010
+Epoch 7/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 6s/step - accuracy: 0.9748 - loss: 0.0675
+Epoch 7: val_loss improved from 0.04536 to 0.04416, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+
+Epoch 7: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1938s 7s/step - accuracy: 0.9741 - loss: 0.0708 - val_accuracy: 0.9853 - val_loss: 0.0442 - learning_rate: 0.0010
+Epoch 8/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 6s/step - accuracy: 0.9736 - loss: 0.0730
+Epoch 8: val_loss improved from 0.04416 to 0.03895, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+
+Epoch 8: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1936s 7s/step - accuracy: 0.9740 - loss: 0.0707 - val_accuracy: 0.9853 - val_loss: 0.0389 - learning_rate: 0.0010
+Epoch 1/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 8s/step - accuracy: 0.9768 - loss: 0.0621
+Epoch 1: val_loss improved from None to 0.02020, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 2610s 9s/step - accuracy: 0.9795 - loss: 0.0542 - val_accuracy: 0.9939 - val_loss: 0.0202 - learning_rate: 1.0000e-05
+Epoch 2/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 8s/step - accuracy: 0.9874 - loss: 0.0329
+Epoch 2: val_loss improved from 0.02020 to 0.01706, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+
+Epoch 2: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 2604s 9s/step - accuracy: 0.9882 - loss: 0.0321 - val_accuracy: 0.9944 - val_loss: 0.0171 - learning_rate: 1.0000e-05
+Epoch 3/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 8s/step - accuracy: 0.9922 - loss: 0.0227
+Epoch 3: val_loss improved from 0.01706 to 0.01692, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+
+Epoch 3: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 2604s 9s/step - accuracy: 0.9917 - loss: 0.0243 - val_accuracy: 0.9929 - val_loss: 0.0169 - learning_rate: 1.0000e-05
+Epoch 4/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 8s/step - accuracy: 0.9960 - loss: 0.0132
+Epoch 4: val_loss improved from 0.01692 to 0.01233, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+
+Epoch 4: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 2602s 9s/step - accuracy: 0.9956 - loss: 0.0153 - val_accuracy: 0.9965 - val_loss: 0.0123 - learning_rate: 1.0000e-05
+Epoch 5/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 8s/step - accuracy: 0.9961 - loss: 0.0139
+Epoch 5: val_loss improved from 0.01233 to 0.00675, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+
+Epoch 5: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG16_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 2598s 9s/step - accuracy: 0.9957 - loss: 0.0140 - val_accuracy: 0.9975 - val_loss: 0.0067 - learning_rate: 1.0000e-05
+Epoch 6/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 8s/step - accuracy: 0.9982 - loss: 0.0067
+Epoch 6: val_loss did not improve from 0.00675
+289/289 ━━━━━━━━━━━━━━━━━━━━ 2596s 9s/step - accuracy: 0.9979 - loss: 0.0073 - val_accuracy: 0.9965 - val_loss: 0.0112 - learning_rate: 1.0000e-05
+Epoch 7/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 8s/step - accuracy: 0.9967 - loss: 0.0076
+Epoch 7: ReduceLROnPlateau reducing learning rate to 2.9999999242136253e-06.
+
+Epoch 7: val_loss did not improve from 0.00675
+289/289 ━━━━━━━━━━━━━━━━━━━━ 2598s 9s/step - accuracy: 0.9974 - loss: 0.0066 - val_accuracy: 0.9949 - val_loss: 0.0104 - learning_rate: 1.0000e-05
+62/62 ━━━━━━━━━━━━━━━━━━━━ 337s 5s/step
+
+Results for VGG16:
+accuracy: 0.9970
+precision: 0.9957
+recall_sensitivity: 0.9978
+specificity: 0.9962
+f1_score: 0.9968
+roc_auc: 1.0000
+tp: 927
+tn: 1046
+fp: 4
+fn: 2
+model_name: VGG16
+training_time_sec: 33731.0852
+
+============================================================
+Training model: VGG19
+============================================================
+Found 9230 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+Epoch 1/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 7s/step - accuracy: 0.8709 - loss: 0.4249
+Epoch 1: val_loss improved from None to 0.09860, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 2404s 8s/step - accuracy: 0.9174 - loss: 0.2529 - val_accuracy: 0.9596 - val_loss: 0.0986 - learning_rate: 0.0010
+Epoch 2/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 7s/step - accuracy: 0.9497 - loss: 0.1393
+Epoch 2: val_loss improved from 0.09860 to 0.07334, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+
+Epoch 2: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 2405s 8s/step - accuracy: 0.9515 - loss: 0.1325 - val_accuracy: 0.9798 - val_loss: 0.0733 - learning_rate: 0.0010
+Epoch 3/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 7s/step - accuracy: 0.9615 - loss: 0.1058
+Epoch 3: val_loss improved from 0.07334 to 0.06835, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+
+Epoch 3: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 2410s 8s/step - accuracy: 0.9584 - loss: 0.1090 - val_accuracy: 0.9757 - val_loss: 0.0684 - learning_rate: 0.0010
+Epoch 4/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 7s/step - accuracy: 0.9647 - loss: 0.0937
+Epoch 4: val_loss improved from 0.06835 to 0.06203, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+
+Epoch 4: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 2405s 8s/step - accuracy: 0.9622 - loss: 0.0980 - val_accuracy: 0.9773 - val_loss: 0.0620 - learning_rate: 0.0010
+Epoch 5/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 7s/step - accuracy: 0.9630 - loss: 0.0954
+Epoch 5: val_loss improved from 0.06203 to 0.05083, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+
+Epoch 5: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 2409s 8s/step - accuracy: 0.9648 - loss: 0.0930 - val_accuracy: 0.9803 - val_loss: 0.0508 - learning_rate: 0.0010
+Epoch 6/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 7s/step - accuracy: 0.9635 - loss: 0.0979
+Epoch 6: val_loss improved from 0.05083 to 0.04906, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+
+Epoch 6: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 2401s 8s/step - accuracy: 0.9676 - loss: 0.0891 - val_accuracy: 0.9874 - val_loss: 0.0491 - learning_rate: 0.0010
+Epoch 7/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 7s/step - accuracy: 0.9668 - loss: 0.0851
+Epoch 7: val_loss improved from 0.04906 to 0.04660, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+
+Epoch 7: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 2388s 8s/step - accuracy: 0.9692 - loss: 0.0801 - val_accuracy: 0.9833 - val_loss: 0.0466 - learning_rate: 0.0010
+Epoch 8/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 7s/step - accuracy: 0.9713 - loss: 0.0756
+Epoch 8: val_loss did not improve from 0.04660
+289/289 ━━━━━━━━━━━━━━━━━━━━ 2386s 8s/step - accuracy: 0.9705 - loss: 0.0763 - val_accuracy: 0.9823 - val_loss: 0.0485 - learning_rate: 0.0010
+Epoch 1/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 10s/step - accuracy: 0.9742 - loss: 0.0730
+Epoch 1: val_loss improved from None to 0.03477, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 3208s 11s/step - accuracy: 0.9782 - loss: 0.0629 - val_accuracy: 0.9879 - val_loss: 0.0348 - learning_rate: 1.0000e-05
+Epoch 2/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 10s/step - accuracy: 0.9869 - loss: 0.0365
+Epoch 2: val_loss improved from 0.03477 to 0.01681, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+
+Epoch 2: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 3202s 11s/step - accuracy: 0.9876 - loss: 0.0351 - val_accuracy: 0.9939 - val_loss: 0.0168 - learning_rate: 1.0000e-05
+Epoch 3/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 10s/step - accuracy: 0.9914 - loss: 0.0248
+Epoch 3: val_loss improved from 0.01681 to 0.01342, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+
+Epoch 3: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 3204s 11s/step - accuracy: 0.9917 - loss: 0.0224 - val_accuracy: 0.9949 - val_loss: 0.0134 - learning_rate: 1.0000e-05
+Epoch 4/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 10s/step - accuracy: 0.9954 - loss: 0.0140
+Epoch 4: val_loss improved from 0.01342 to 0.00922, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+
+Epoch 4: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 3201s 11s/step - accuracy: 0.9948 - loss: 0.0161 - val_accuracy: 0.9949 - val_loss: 0.0092 - learning_rate: 1.0000e-05
+Epoch 5/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 10s/step - accuracy: 0.9956 - loss: 0.0112
+Epoch 5: val_loss did not improve from 0.00922
+289/289 ━━━━━━━━━━━━━━━━━━━━ 3202s 11s/step - accuracy: 0.9954 - loss: 0.0124 - val_accuracy: 0.9965 - val_loss: 0.0125 - learning_rate: 1.0000e-05
+Epoch 6/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 10s/step - accuracy: 0.9955 - loss: 0.0119
+Epoch 6: ReduceLROnPlateau reducing learning rate to 2.9999999242136253e-06.
+
+Epoch 6: val_loss did not improve from 0.00922
+289/289 ━━━━━━━━━━━━━━━━━━━━ 3200s 11s/step - accuracy: 0.9962 - loss: 0.0117 - val_accuracy: 0.9960 - val_loss: 0.0102 - learning_rate: 1.0000e-05
+Epoch 7/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 10s/step - accuracy: 0.9979 - loss: 0.0058
+Epoch 7: val_loss improved from 0.00922 to 0.00823, saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+
+Epoch 7: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/VGG19_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 3200s 11s/step - accuracy: 0.9983 - loss: 0.0052 - val_accuracy: 0.9960 - val_loss: 0.0082 - learning_rate: 3.0000e-06
+62/62 ━━━━━━━━━━━━━━━━━━━━ 418s 7s/step
+
+Results for VGG19:
+accuracy: 0.9949
+precision: 0.9936
+recall_sensitivity: 0.9957
+specificity: 0.9943
+f1_score: 0.9946
+roc_auc: 0.9998
+tp: 925
+tn: 1044
+fp: 6
+fn: 4
+model_name: VGG19
+training_time_sec: 41627.4868
+
+============================================================
+Training model: ResNet50V2
+============================================================
+Found 9230 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+Epoch 1/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9215 - loss: 0.1948
+Epoch 1: val_loss improved from None to 0.07322, saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 703s 2s/step - accuracy: 0.9492 - loss: 0.1377 - val_accuracy: 0.9757 - val_loss: 0.0732 - learning_rate: 0.0010
+Epoch 2/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9701 - loss: 0.0871
+Epoch 2: val_loss improved from 0.07322 to 0.05589, saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+
+Epoch 2: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 698s 2s/step - accuracy: 0.9705 - loss: 0.0858 - val_accuracy: 0.9813 - val_loss: 0.0559 - learning_rate: 0.0010
+Epoch 3/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9729 - loss: 0.0748
+Epoch 3: val_loss improved from 0.05589 to 0.05308, saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+
+Epoch 3: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 697s 2s/step - accuracy: 0.9740 - loss: 0.0711 - val_accuracy: 0.9818 - val_loss: 0.0531 - learning_rate: 0.0010
+Epoch 4/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9754 - loss: 0.0667
+Epoch 4: val_loss improved from 0.05308 to 0.04362, saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+
+Epoch 4: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 697s 2s/step - accuracy: 0.9779 - loss: 0.0619 - val_accuracy: 0.9853 - val_loss: 0.0436 - learning_rate: 0.0010
+Epoch 5/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9794 - loss: 0.0528
+Epoch 5: val_loss improved from 0.04362 to 0.03671, saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+
+Epoch 5: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 698s 2s/step - accuracy: 0.9791 - loss: 0.0554 - val_accuracy: 0.9859 - val_loss: 0.0367 - learning_rate: 0.0010
+Epoch 6/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9830 - loss: 0.0524
+Epoch 6: val_loss improved from 0.03671 to 0.03232, saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+
+Epoch 6: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 697s 2s/step - accuracy: 0.9809 - loss: 0.0542 - val_accuracy: 0.9879 - val_loss: 0.0323 - learning_rate: 0.0010
+Epoch 7/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9805 - loss: 0.0530
+Epoch 7: val_loss improved from 0.03232 to 0.02893, saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+
+Epoch 7: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 698s 2s/step - accuracy: 0.9818 - loss: 0.0484 - val_accuracy: 0.9914 - val_loss: 0.0289 - learning_rate: 0.0010
+Epoch 8/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9845 - loss: 0.0419
+Epoch 8: val_loss improved from 0.02893 to 0.02557, saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+
+Epoch 8: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 697s 2s/step - accuracy: 0.9826 - loss: 0.0447 - val_accuracy: 0.9909 - val_loss: 0.0256 - learning_rate: 0.0010
+Epoch 1/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 4s/step - accuracy: 0.9657 - loss: 0.0887
+Epoch 1: val_loss improved from None to 0.02490, saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1217s 4s/step - accuracy: 0.9740 - loss: 0.0702 - val_accuracy: 0.9914 - val_loss: 0.0249 - learning_rate: 1.0000e-05
+Epoch 2/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 4s/step - accuracy: 0.9825 - loss: 0.0479
+Epoch 2: val_loss improved from 0.02490 to 0.02001, saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+
+Epoch 2: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1191s 4s/step - accuracy: 0.9833 - loss: 0.0461 - val_accuracy: 0.9914 - val_loss: 0.0200 - learning_rate: 1.0000e-05
+Epoch 3/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 4s/step - accuracy: 0.9892 - loss: 0.0348
+Epoch 3: val_loss improved from 0.02001 to 0.01205, saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+
+Epoch 3: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1187s 4s/step - accuracy: 0.9898 - loss: 0.0302 - val_accuracy: 0.9965 - val_loss: 0.0120 - learning_rate: 1.0000e-05
+Epoch 4/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 4s/step - accuracy: 0.9940 - loss: 0.0172
+Epoch 4: val_loss improved from 0.01205 to 0.01034, saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+
+Epoch 4: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1179s 4s/step - accuracy: 0.9945 - loss: 0.0190 - val_accuracy: 0.9960 - val_loss: 0.0103 - learning_rate: 1.0000e-05
+Epoch 5/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 4s/step - accuracy: 0.9964 - loss: 0.0126
+Epoch 5: val_loss improved from 0.01034 to 0.00824, saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+
+Epoch 5: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1171s 4s/step - accuracy: 0.9954 - loss: 0.0146 - val_accuracy: 0.9975 - val_loss: 0.0082 - learning_rate: 1.0000e-05
+Epoch 6/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 4s/step - accuracy: 0.9948 - loss: 0.0162
+Epoch 6: val_loss did not improve from 0.00824
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1161s 4s/step - accuracy: 0.9954 - loss: 0.0136 - val_accuracy: 0.9970 - val_loss: 0.0083 - learning_rate: 1.0000e-05
+Epoch 7/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 4s/step - accuracy: 0.9969 - loss: 0.0123
+Epoch 7: val_loss improved from 0.00824 to 0.00607, saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+
+Epoch 7: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/ResNet50V2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1152s 4s/step - accuracy: 0.9970 - loss: 0.0107 - val_accuracy: 0.9985 - val_loss: 0.0061 - learning_rate: 1.0000e-05
+62/62 ━━━━━━━━━━━━━━━━━━━━ 119s 2s/step
+
+Results for ResNet50V2:
+accuracy: 0.9965
+precision: 0.9968
+recall_sensitivity: 0.9957
+specificity: 0.9971
+f1_score: 0.9962
+roc_auc: 0.9999
+tp: 925
+tn: 1047
+fp: 3
+fn: 4
+model_name: ResNet50V2
+training_time_sec: 13843.9377
+
+============================================================
+Training model: DenseNet121
+============================================================
+Found 9230 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+Epoch 1/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.8875 - loss: 0.2560
+Epoch 1: val_loss improved from None to 0.08057, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 837s 3s/step - accuracy: 0.9336 - loss: 0.1634 - val_accuracy: 0.9672 - val_loss: 0.0806 - learning_rate: 0.0010
+Epoch 2/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9604 - loss: 0.1028
+Epoch 2: val_loss improved from 0.08057 to 0.06909, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+
+Epoch 2: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 823s 3s/step - accuracy: 0.9581 - loss: 0.1076 - val_accuracy: 0.9732 - val_loss: 0.0691 - learning_rate: 0.0010
+Epoch 3/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9614 - loss: 0.0985
+Epoch 3: val_loss improved from 0.06909 to 0.05809, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+
+Epoch 3: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 824s 3s/step - accuracy: 0.9633 - loss: 0.0961 - val_accuracy: 0.9798 - val_loss: 0.0581 - learning_rate: 0.0010
+Epoch 4/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9658 - loss: 0.0888
+Epoch 4: val_loss improved from 0.05809 to 0.05772, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+
+Epoch 4: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 824s 3s/step - accuracy: 0.9642 - loss: 0.0927 - val_accuracy: 0.9798 - val_loss: 0.0577 - learning_rate: 0.0010
+Epoch 5/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9662 - loss: 0.0849
+Epoch 5: val_loss improved from 0.05772 to 0.05255, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+
+Epoch 5: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 824s 3s/step - accuracy: 0.9674 - loss: 0.0830 - val_accuracy: 0.9808 - val_loss: 0.0525 - learning_rate: 0.0010
+Epoch 6/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9698 - loss: 0.0771
+Epoch 6: val_loss improved from 0.05255 to 0.04716, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+
+Epoch 6: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 824s 3s/step - accuracy: 0.9711 - loss: 0.0770 - val_accuracy: 0.9843 - val_loss: 0.0472 - learning_rate: 0.0010
+Epoch 7/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9701 - loss: 0.0784
+Epoch 7: val_loss improved from 0.04716 to 0.04659, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+
+Epoch 7: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 825s 3s/step - accuracy: 0.9714 - loss: 0.0746 - val_accuracy: 0.9848 - val_loss: 0.0466 - learning_rate: 0.0010
+Epoch 8/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9739 - loss: 0.0743
+Epoch 8: val_loss improved from 0.04659 to 0.04542, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+
+Epoch 8: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 822s 3s/step - accuracy: 0.9725 - loss: 0.0749 - val_accuracy: 0.9853 - val_loss: 0.0454 - learning_rate: 0.0010
+Epoch 1/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 3s/step - accuracy: 0.9468 - loss: 0.1233
+Epoch 1: val_loss improved from None to 0.04311, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1100s 4s/step - accuracy: 0.9620 - loss: 0.0956 - val_accuracy: 0.9833 - val_loss: 0.0431 - learning_rate: 1.0000e-05
+Epoch 2/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 3s/step - accuracy: 0.9722 - loss: 0.0683
+Epoch 2: val_loss improved from 0.04311 to 0.03715, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+
+Epoch 2: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1072s 4s/step - accuracy: 0.9729 - loss: 0.0700 - val_accuracy: 0.9859 - val_loss: 0.0371 - learning_rate: 1.0000e-05
+Epoch 3/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 3s/step - accuracy: 0.9808 - loss: 0.0504
+Epoch 3: val_loss improved from 0.03715 to 0.03210, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+
+Epoch 3: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1057s 4s/step - accuracy: 0.9793 - loss: 0.0556 - val_accuracy: 0.9874 - val_loss: 0.0321 - learning_rate: 1.0000e-05
+Epoch 4/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 3s/step - accuracy: 0.9847 - loss: 0.0452
+Epoch 4: val_loss improved from 0.03210 to 0.02762, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+
+Epoch 4: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1058s 4s/step - accuracy: 0.9834 - loss: 0.0463 - val_accuracy: 0.9894 - val_loss: 0.0276 - learning_rate: 1.0000e-05
+Epoch 5/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 3s/step - accuracy: 0.9851 - loss: 0.0429
+Epoch 5: val_loss improved from 0.02762 to 0.02623, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+
+Epoch 5: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1059s 4s/step - accuracy: 0.9863 - loss: 0.0382 - val_accuracy: 0.9894 - val_loss: 0.0262 - learning_rate: 1.0000e-05
+Epoch 6/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 3s/step - accuracy: 0.9900 - loss: 0.0320
+Epoch 6: val_loss improved from 0.02623 to 0.02222, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+
+Epoch 6: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1058s 4s/step - accuracy: 0.9896 - loss: 0.0333 - val_accuracy: 0.9889 - val_loss: 0.0222 - learning_rate: 1.0000e-05
+Epoch 7/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 3s/step - accuracy: 0.9902 - loss: 0.0257
+Epoch 7: val_loss improved from 0.02222 to 0.02044, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+
+Epoch 7: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet121_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1060s 4s/step - accuracy: 0.9899 - loss: 0.0278 - val_accuracy: 0.9914 - val_loss: 0.0204 - learning_rate: 1.0000e-05
+62/62 ━━━━━━━━━━━━━━━━━━━━ 150s 2s/step
+
+Results for DenseNet121:
+accuracy: 0.9904
+precision: 0.9882
+recall_sensitivity: 0.9914
+specificity: 0.9895
+f1_score: 0.9898
+roc_auc: 0.9997
+tp: 921
+tn: 1039
+fp: 11
+fn: 8
+model_name: DenseNet121
+training_time_sec: 14070.2184
+
+============================================================
+Training model: DenseNet201
+============================================================
+Found 9230 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+Epoch 1/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 4s/step - accuracy: 0.9202 - loss: 0.1980
+Epoch 1: val_loss improved from None to 0.06822, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1284s 4s/step - accuracy: 0.9489 - loss: 0.1382 - val_accuracy: 0.9717 - val_loss: 0.0682 - learning_rate: 0.0010
+Epoch 2/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 4s/step - accuracy: 0.9633 - loss: 0.0999
+Epoch 2: val_loss did not improve from 0.06822
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1261s 4s/step - accuracy: 0.9645 - loss: 0.0971 - val_accuracy: 0.9737 - val_loss: 0.0730 - learning_rate: 0.0010
+Epoch 3/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 4s/step - accuracy: 0.9672 - loss: 0.0835
+Epoch 3: val_loss improved from 0.06822 to 0.05199, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+
+Epoch 3: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1266s 4s/step - accuracy: 0.9691 - loss: 0.0780 - val_accuracy: 0.9778 - val_loss: 0.0520 - learning_rate: 0.0010
+Epoch 4/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 4s/step - accuracy: 0.9751 - loss: 0.0680
+Epoch 4: val_loss improved from 0.05199 to 0.05021, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+
+Epoch 4: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1272s 4s/step - accuracy: 0.9728 - loss: 0.0721 - val_accuracy: 0.9828 - val_loss: 0.0502 - learning_rate: 0.0010
+Epoch 5/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 4s/step - accuracy: 0.9750 - loss: 0.0661
+Epoch 5: val_loss improved from 0.05021 to 0.03882, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+
+Epoch 5: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1263s 4s/step - accuracy: 0.9740 - loss: 0.0664 - val_accuracy: 0.9869 - val_loss: 0.0388 - learning_rate: 0.0010
+Epoch 6/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 4s/step - accuracy: 0.9764 - loss: 0.0637
+Epoch 6: val_loss improved from 0.03882 to 0.03527, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+
+Epoch 6: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1260s 4s/step - accuracy: 0.9770 - loss: 0.0636 - val_accuracy: 0.9889 - val_loss: 0.0353 - learning_rate: 0.0010
+Epoch 7/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 4s/step - accuracy: 0.9760 - loss: 0.0614
+Epoch 7: val_loss did not improve from 0.03527
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1266s 4s/step - accuracy: 0.9781 - loss: 0.0594 - val_accuracy: 0.9879 - val_loss: 0.0354 - learning_rate: 0.0010
+Epoch 8/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 4s/step - accuracy: 0.9783 - loss: 0.0521
+Epoch 8: ReduceLROnPlateau reducing learning rate to 0.0003000000142492354.
+
+Epoch 8: val_loss did not improve from 0.03527
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1266s 4s/step - accuracy: 0.9776 - loss: 0.0579 - val_accuracy: 0.9853 - val_loss: 0.0359 - learning_rate: 0.0010
+Epoch 1/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 5s/step - accuracy: 0.9550 - loss: 0.1107
+Epoch 1: val_loss improved from None to 0.03016, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1713s 6s/step - accuracy: 0.9676 - loss: 0.0841 - val_accuracy: 0.9889 - val_loss: 0.0302 - learning_rate: 1.0000e-05
+Epoch 2/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 5s/step - accuracy: 0.9777 - loss: 0.0602
+Epoch 2: val_loss improved from 0.03016 to 0.02275, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+
+Epoch 2: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1677s 6s/step - accuracy: 0.9805 - loss: 0.0539 - val_accuracy: 0.9929 - val_loss: 0.0227 - learning_rate: 1.0000e-05
+Epoch 3/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 5s/step - accuracy: 0.9863 - loss: 0.0414
+Epoch 3: val_loss improved from 0.02275 to 0.01860, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+
+Epoch 3: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1676s 6s/step - accuracy: 0.9865 - loss: 0.0384 - val_accuracy: 0.9939 - val_loss: 0.0186 - learning_rate: 1.0000e-05
+Epoch 4/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 5s/step - accuracy: 0.9882 - loss: 0.0301
+Epoch 4: val_loss improved from 0.01860 to 0.01757, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+
+Epoch 4: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1683s 6s/step - accuracy: 0.9896 - loss: 0.0294 - val_accuracy: 0.9929 - val_loss: 0.0176 - learning_rate: 1.0000e-05
+Epoch 5/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 5s/step - accuracy: 0.9913 - loss: 0.0232
+Epoch 5: val_loss improved from 0.01757 to 0.01466, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+
+Epoch 5: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1679s 6s/step - accuracy: 0.9912 - loss: 0.0242 - val_accuracy: 0.9944 - val_loss: 0.0147 - learning_rate: 1.0000e-05
+Epoch 6/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 5s/step - accuracy: 0.9896 - loss: 0.0254
+Epoch 6: val_loss improved from 0.01466 to 0.01241, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+
+Epoch 6: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1677s 6s/step - accuracy: 0.9921 - loss: 0.0210 - val_accuracy: 0.9965 - val_loss: 0.0124 - learning_rate: 1.0000e-05
+Epoch 7/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 5s/step - accuracy: 0.9957 - loss: 0.0147
+Epoch 7: val_loss improved from 0.01241 to 0.01221, saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+
+Epoch 7: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/DenseNet201_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1677s 6s/step - accuracy: 0.9940 - loss: 0.0175 - val_accuracy: 0.9960 - val_loss: 0.0122 - learning_rate: 1.0000e-05
+62/62 ━━━━━━━━━━━━━━━━━━━━ 230s 4s/step
+
+Results for DenseNet201:
+accuracy: 0.9980
+precision: 0.9989
+recall_sensitivity: 0.9968
+specificity: 0.9990
+f1_score: 0.9978
+roc_auc: 0.9999
+tp: 926
+tn: 1049
+fp: 1
+fn: 3
+model_name: DenseNet201
+training_time_sec: 21920.5043
+
+============================================================
+Training model: EfficientNetB0
+============================================================
+Found 9230 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+Epoch 1/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9254 - loss: 0.1711
+Epoch 1: val_loss improved from None to 0.06876, saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 423s 1s/step - accuracy: 0.9524 - loss: 0.1192 - val_accuracy: 0.9742 - val_loss: 0.0688 - learning_rate: 0.0010
+Epoch 2/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9674 - loss: 0.0812
+Epoch 2: val_loss improved from 0.06876 to 0.04927, saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+
+Epoch 2: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 414s 1s/step - accuracy: 0.9685 - loss: 0.0818 - val_accuracy: 0.9808 - val_loss: 0.0493 - learning_rate: 0.0010
+Epoch 3/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9756 - loss: 0.0765
+Epoch 3: val_loss improved from 0.04927 to 0.04325, saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+
+Epoch 3: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 412s 1s/step - accuracy: 0.9757 - loss: 0.0686 - val_accuracy: 0.9838 - val_loss: 0.0433 - learning_rate: 0.0010
+Epoch 4/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9752 - loss: 0.0580
+Epoch 4: val_loss improved from 0.04325 to 0.03184, saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+
+Epoch 4: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 413s 1s/step - accuracy: 0.9756 - loss: 0.0609 - val_accuracy: 0.9894 - val_loss: 0.0318 - learning_rate: 0.0010
+Epoch 5/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9804 - loss: 0.0524
+Epoch 5: val_loss did not improve from 0.03184
+289/289 ━━━━━━━━━━━━━━━━━━━━ 418s 1s/step - accuracy: 0.9794 - loss: 0.0544 - val_accuracy: 0.9869 - val_loss: 0.0384 - learning_rate: 0.0010
+Epoch 6/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9806 - loss: 0.0488
+Epoch 6: ReduceLROnPlateau reducing learning rate to 0.0003000000142492354.
+
+Epoch 6: val_loss did not improve from 0.03184
+289/289 ━━━━━━━━━━━━━━━━━━━━ 413s 1s/step - accuracy: 0.9793 - loss: 0.0521 - val_accuracy: 0.9864 - val_loss: 0.0323 - learning_rate: 0.0010
+Epoch 7/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9817 - loss: 0.0458
+Epoch 7: val_loss improved from 0.03184 to 0.02879, saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+
+Epoch 7: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 413s 1s/step - accuracy: 0.9824 - loss: 0.0446 - val_accuracy: 0.9899 - val_loss: 0.0288 - learning_rate: 3.0000e-04
+Epoch 8/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9844 - loss: 0.0384
+Epoch 8: val_loss improved from 0.02879 to 0.02434, saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+
+Epoch 8: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 413s 1s/step - accuracy: 0.9844 - loss: 0.0390 - val_accuracy: 0.9924 - val_loss: 0.0243 - learning_rate: 3.0000e-04
+Epoch 1/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9478 - loss: 0.1397
+Epoch 1: val_loss improved from None to 0.04612, saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 569s 2s/step - accuracy: 0.9582 - loss: 0.1120 - val_accuracy: 0.9833 - val_loss: 0.0461 - learning_rate: 1.0000e-05
+Epoch 2/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9651 - loss: 0.0915
+Epoch 2: val_loss improved from 0.04612 to 0.04124, saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+
+Epoch 2: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 555s 2s/step - accuracy: 0.9678 - loss: 0.0800 - val_accuracy: 0.9869 - val_loss: 0.0412 - learning_rate: 1.0000e-05
+Epoch 3/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9801 - loss: 0.0570
+Epoch 3: val_loss improved from 0.04124 to 0.03624, saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+
+Epoch 3: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 557s 2s/step - accuracy: 0.9779 - loss: 0.0616 - val_accuracy: 0.9889 - val_loss: 0.0362 - learning_rate: 1.0000e-05
+Epoch 4/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9793 - loss: 0.0533
+Epoch 4: val_loss improved from 0.03624 to 0.03152, saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+
+Epoch 4: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 555s 2s/step - accuracy: 0.9802 - loss: 0.0539 - val_accuracy: 0.9904 - val_loss: 0.0315 - learning_rate: 1.0000e-05
+Epoch 5/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9842 - loss: 0.0452
+Epoch 5: val_loss improved from 0.03152 to 0.02961, saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+
+Epoch 5: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 556s 2s/step - accuracy: 0.9828 - loss: 0.0461 - val_accuracy: 0.9914 - val_loss: 0.0296 - learning_rate: 1.0000e-05
+Epoch 6/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9819 - loss: 0.0475
+Epoch 6: val_loss improved from 0.02961 to 0.02716, saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+
+Epoch 6: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 555s 2s/step - accuracy: 0.9848 - loss: 0.0416 - val_accuracy: 0.9924 - val_loss: 0.0272 - learning_rate: 1.0000e-05
+Epoch 7/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9875 - loss: 0.0332
+Epoch 7: val_loss improved from 0.02716 to 0.02518, saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+
+Epoch 7: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/EfficientNetB0_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 555s 2s/step - accuracy: 0.9862 - loss: 0.0366 - val_accuracy: 0.9929 - val_loss: 0.0252 - learning_rate: 1.0000e-05
+62/62 ━━━━━━━━━━━━━━━━━━━━ 73s 1s/step
+
+Results for EfficientNetB0:
+accuracy: 0.9939
+precision: 0.9925
+recall_sensitivity: 0.9946
+specificity: 0.9933
+f1_score: 0.9935
+roc_auc: 0.9995
+tp: 924
+tn: 1043
+fp: 7
+fn: 5
+model_name: EfficientNetB0
+training_time_sec: 7221.8618
+
+============================================================
+Training model: MobileNetV2
+============================================================
+Found 9230 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+Epoch 1/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 882ms/step - accuracy: 0.9245 - loss: 0.1889
+Epoch 1: val_loss improved from None to 0.07277, saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 303s 1s/step - accuracy: 0.9499 - loss: 0.1283 - val_accuracy: 0.9722 - val_loss: 0.0728 - learning_rate: 0.0010
+Epoch 2/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 876ms/step - accuracy: 0.9710 - loss: 0.0778
+Epoch 2: val_loss improved from 0.07277 to 0.05926, saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+
+Epoch 2: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 297s 1s/step - accuracy: 0.9717 - loss: 0.0757 - val_accuracy: 0.9768 - val_loss: 0.0593 - learning_rate: 0.0010
+Epoch 3/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 866ms/step - accuracy: 0.9766 - loss: 0.0606
+Epoch 3: val_loss improved from 0.05926 to 0.05453, saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+
+Epoch 3: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 294s 1s/step - accuracy: 0.9767 - loss: 0.0613 - val_accuracy: 0.9818 - val_loss: 0.0545 - learning_rate: 0.0010
+Epoch 4/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 875ms/step - accuracy: 0.9794 - loss: 0.0544
+Epoch 4: val_loss improved from 0.05453 to 0.03697, saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+
+Epoch 4: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 296s 1s/step - accuracy: 0.9779 - loss: 0.0579 - val_accuracy: 0.9869 - val_loss: 0.0370 - learning_rate: 0.0010
+Epoch 5/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 888ms/step - accuracy: 0.9836 - loss: 0.0517
+Epoch 5: val_loss did not improve from 0.03697
+289/289 ━━━━━━━━━━━━━━━━━━━━ 300s 1s/step - accuracy: 0.9818 - loss: 0.0513 - val_accuracy: 0.9843 - val_loss: 0.0446 - learning_rate: 0.0010
+Epoch 6/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 884ms/step - accuracy: 0.9829 - loss: 0.0492
+Epoch 6: ReduceLROnPlateau reducing learning rate to 0.0003000000142492354.
+
+Epoch 6: val_loss did not improve from 0.03697
+289/289 ━━━━━━━━━━━━━━━━━━━━ 299s 1s/step - accuracy: 0.9829 - loss: 0.0473 - val_accuracy: 0.9874 - val_loss: 0.0423 - learning_rate: 0.0010
+Epoch 7/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 872ms/step - accuracy: 0.9825 - loss: 0.0446
+Epoch 7: val_loss improved from 0.03697 to 0.03116, saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+
+Epoch 7: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 296s 1s/step - accuracy: 0.9859 - loss: 0.0383 - val_accuracy: 0.9909 - val_loss: 0.0312 - learning_rate: 3.0000e-04
+Epoch 8/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 880ms/step - accuracy: 0.9884 - loss: 0.0316
+Epoch 8: val_loss did not improve from 0.03116
+289/289 ━━━━━━━━━━━━━━━━━━━━ 297s 1s/step - accuracy: 0.9887 - loss: 0.0321 - val_accuracy: 0.9914 - val_loss: 0.0320 - learning_rate: 3.0000e-04
+Epoch 1/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9409 - loss: 0.1415
+Epoch 1: val_loss improved from None to 0.04599, saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 394s 1s/step - accuracy: 0.9571 - loss: 0.1068 - val_accuracy: 0.9818 - val_loss: 0.0460 - learning_rate: 1.0000e-05
+Epoch 2/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9718 - loss: 0.0732
+Epoch 2: val_loss did not improve from 0.04599
+289/289 ━━━━━━━━━━━━━━━━━━━━ 383s 1s/step - accuracy: 0.9767 - loss: 0.0646 - val_accuracy: 0.9793 - val_loss: 0.0587 - learning_rate: 1.0000e-05
+Epoch 3/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9839 - loss: 0.0445
+Epoch 3: ReduceLROnPlateau reducing learning rate to 2.9999999242136253e-06.
+
+Epoch 3: val_loss did not improve from 0.04599
+289/289 ━━━━━━━━━━━━━━━━━━━━ 385s 1s/step - accuracy: 0.9830 - loss: 0.0453 - val_accuracy: 0.9828 - val_loss: 0.0527 - learning_rate: 1.0000e-05
+Epoch 4/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9850 - loss: 0.0401
+Epoch 4: val_loss improved from 0.04599 to 0.03663, saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+
+Epoch 4: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 382s 1s/step - accuracy: 0.9848 - loss: 0.0383 - val_accuracy: 0.9869 - val_loss: 0.0366 - learning_rate: 3.0000e-06
+Epoch 5/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9866 - loss: 0.0403
+Epoch 5: val_loss improved from 0.03663 to 0.02923, saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+
+Epoch 5: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 379s 1s/step - accuracy: 0.9862 - loss: 0.0392 - val_accuracy: 0.9889 - val_loss: 0.0292 - learning_rate: 3.0000e-06
+Epoch 6/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9868 - loss: 0.0417
+Epoch 6: val_loss improved from 0.02923 to 0.02514, saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+
+Epoch 6: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 384s 1s/step - accuracy: 0.9885 - loss: 0.0357 - val_accuracy: 0.9904 - val_loss: 0.0251 - learning_rate: 3.0000e-06
+Epoch 7/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9875 - loss: 0.0319
+Epoch 7: val_loss improved from 0.02514 to 0.02217, saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+
+Epoch 7: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/MobileNetV2_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 382s 1s/step - accuracy: 0.9878 - loss: 0.0321 - val_accuracy: 0.9939 - val_loss: 0.0222 - learning_rate: 3.0000e-06
+62/62 ━━━━━━━━━━━━━━━━━━━━ 45s 714ms/step
+
+Results for MobileNetV2:
+accuracy: 0.9955
+precision: 0.9978
+recall_sensitivity: 0.9925
+specificity: 0.9981
+f1_score: 0.9951
+roc_auc: 0.9997
+tp: 922
+tn: 1048
+fp: 2
+fn: 7
+model_name: MobileNetV2
+training_time_sec: 5072.9383
+
+============================================================
+Training model: InceptionV3
+============================================================
+Found 9230 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+Epoch 1/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9152 - loss: 0.2134
+Epoch 1: val_loss improved from None to 0.08882, saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 481s 2s/step - accuracy: 0.9358 - loss: 0.1640 - val_accuracy: 0.9707 - val_loss: 0.0888 - learning_rate: 0.0010
+Epoch 2/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9505 - loss: 0.1242
+Epoch 2: val_loss improved from 0.08882 to 0.08397, saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+
+Epoch 2: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 476s 2s/step - accuracy: 0.9548 - loss: 0.1163 - val_accuracy: 0.9707 - val_loss: 0.0840 - learning_rate: 0.0010
+Epoch 3/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9601 - loss: 0.1076
+Epoch 3: val_loss improved from 0.08397 to 0.07542, saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+
+Epoch 3: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 476s 2s/step - accuracy: 0.9627 - loss: 0.0997 - val_accuracy: 0.9737 - val_loss: 0.0754 - learning_rate: 0.0010
+Epoch 4/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9643 - loss: 0.0978
+Epoch 4: val_loss improved from 0.07542 to 0.06640, saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+
+Epoch 4: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 475s 2s/step - accuracy: 0.9676 - loss: 0.0888 - val_accuracy: 0.9793 - val_loss: 0.0664 - learning_rate: 0.0010
+Epoch 5/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9673 - loss: 0.0872
+Epoch 5: val_loss improved from 0.06640 to 0.06108, saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+
+Epoch 5: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 474s 2s/step - accuracy: 0.9671 - loss: 0.0869 - val_accuracy: 0.9818 - val_loss: 0.0611 - learning_rate: 0.0010
+Epoch 6/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9697 - loss: 0.0782
+Epoch 6: val_loss improved from 0.06108 to 0.05771, saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+
+Epoch 6: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 475s 2s/step - accuracy: 0.9681 - loss: 0.0827 - val_accuracy: 0.9793 - val_loss: 0.0577 - learning_rate: 0.0010
+Epoch 7/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9737 - loss: 0.0717
+Epoch 7: val_loss did not improve from 0.05771
+289/289 ━━━━━━━━━━━━━━━━━━━━ 474s 2s/step - accuracy: 0.9725 - loss: 0.0733 - val_accuracy: 0.9778 - val_loss: 0.0685 - learning_rate: 0.0010
+Epoch 8/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 1s/step - accuracy: 0.9699 - loss: 0.0767
+Epoch 8: val_loss improved from 0.05771 to 0.05359, saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+
+Epoch 8: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 476s 2s/step - accuracy: 0.9717 - loss: 0.0726 - val_accuracy: 0.9843 - val_loss: 0.0536 - learning_rate: 0.0010
+Epoch 1/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9476 - loss: 0.1384
+Epoch 1: val_loss improved from None to 0.04441, saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 718s 2s/step - accuracy: 0.9603 - loss: 0.1065 - val_accuracy: 0.9869 - val_loss: 0.0444 - learning_rate: 1.0000e-05
+Epoch 2/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9716 - loss: 0.0773
+Epoch 2: val_loss improved from 0.04441 to 0.03395, saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+
+Epoch 2: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 706s 2s/step - accuracy: 0.9765 - loss: 0.0655 - val_accuracy: 0.9914 - val_loss: 0.0340 - learning_rate: 1.0000e-05
+Epoch 3/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9841 - loss: 0.0414
+Epoch 3: val_loss improved from 0.03395 to 0.02681, saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+
+Epoch 3: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 706s 2s/step - accuracy: 0.9844 - loss: 0.0414 - val_accuracy: 0.9914 - val_loss: 0.0268 - learning_rate: 1.0000e-05
+Epoch 4/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9879 - loss: 0.0309
+Epoch 4: val_loss improved from 0.02681 to 0.02095, saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+
+Epoch 4: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 721s 2s/step - accuracy: 0.9891 - loss: 0.0298 - val_accuracy: 0.9949 - val_loss: 0.0209 - learning_rate: 1.0000e-05
+Epoch 5/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9926 - loss: 0.0216
+Epoch 5: val_loss improved from 0.02095 to 0.01789, saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+
+Epoch 5: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 709s 2s/step - accuracy: 0.9930 - loss: 0.0228 - val_accuracy: 0.9955 - val_loss: 0.0179 - learning_rate: 1.0000e-05
+Epoch 6/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9902 - loss: 0.0237
+Epoch 6: val_loss improved from 0.01789 to 0.01513, saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+
+Epoch 6: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/InceptionV3_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 708s 2s/step - accuracy: 0.9918 - loss: 0.0218 - val_accuracy: 0.9965 - val_loss: 0.0151 - learning_rate: 1.0000e-05
+Epoch 7/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 2s/step - accuracy: 0.9951 - loss: 0.0141
+Epoch 7: val_loss did not improve from 0.01513
+289/289 ━━━━━━━━━━━━━━━━━━━━ 708s 2s/step - accuracy: 0.9946 - loss: 0.0154 - val_accuracy: 0.9965 - val_loss: 0.0153 - learning_rate: 1.0000e-05
+62/62 ━━━━━━━━━━━━━━━━━━━━ 84s 1s/step
+
+Results for InceptionV3:
+accuracy: 0.9939
+precision: 0.9946
+recall_sensitivity: 0.9925
+specificity: 0.9952
+f1_score: 0.9935
+roc_auc: 0.9998
+tp: 922
+tn: 1045
+fp: 5
+fn: 7
+model_name: InceptionV3
+training_time_sec: 8785.6952
+
+============================================================
+Training model: Xception
+============================================================
+Found 9230 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+Found 1979 validated image filenames belonging to 2 classes.
+Epoch 1/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 3s/step - accuracy: 0.9225 - loss: 0.1906
+Epoch 1: val_loss improved from None to 0.06750, saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 960s 3s/step - accuracy: 0.9445 - loss: 0.1453 - val_accuracy: 0.9737 - val_loss: 0.0675 - learning_rate: 0.0010
+Epoch 2/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 3s/step - accuracy: 0.9652 - loss: 0.0922
+Epoch 2: val_loss improved from 0.06750 to 0.05589, saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+
+Epoch 2: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 957s 3s/step - accuracy: 0.9653 - loss: 0.0935 - val_accuracy: 0.9788 - val_loss: 0.0559 - learning_rate: 0.0010
+Epoch 3/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 3s/step - accuracy: 0.9694 - loss: 0.0818
+Epoch 3: val_loss improved from 0.05589 to 0.05064, saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+
+Epoch 3: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 957s 3s/step - accuracy: 0.9677 - loss: 0.0833 - val_accuracy: 0.9823 - val_loss: 0.0506 - learning_rate: 0.0010
+Epoch 4/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 3s/step - accuracy: 0.9690 - loss: 0.0708
+Epoch 4: val_loss did not improve from 0.05064
+289/289 ━━━━━━━━━━━━━━━━━━━━ 960s 3s/step - accuracy: 0.9710 - loss: 0.0716 - val_accuracy: 0.9773 - val_loss: 0.0662 - learning_rate: 0.0010
+Epoch 5/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 3s/step - accuracy: 0.9742 - loss: 0.0644
+Epoch 5: val_loss improved from 0.05064 to 0.04779, saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+
+Epoch 5: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 961s 3s/step - accuracy: 0.9736 - loss: 0.0648 - val_accuracy: 0.9848 - val_loss: 0.0478 - learning_rate: 0.0010
+Epoch 6/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 3s/step - accuracy: 0.9776 - loss: 0.0598
+Epoch 6: val_loss improved from 0.04779 to 0.03967, saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+
+Epoch 6: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 960s 3s/step - accuracy: 0.9787 - loss: 0.0594 - val_accuracy: 0.9869 - val_loss: 0.0397 - learning_rate: 0.0010
+Epoch 7/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 3s/step - accuracy: 0.9798 - loss: 0.0590
+Epoch 7: val_loss improved from 0.03967 to 0.03599, saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+
+Epoch 7: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 962s 3s/step - accuracy: 0.9779 - loss: 0.0609 - val_accuracy: 0.9874 - val_loss: 0.0360 - learning_rate: 0.0010
+Epoch 8/8
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 3s/step - accuracy: 0.9796 - loss: 0.0529
+Epoch 8: val_loss improved from 0.03599 to 0.03458, saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+
+Epoch 8: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 962s 3s/step - accuracy: 0.9800 - loss: 0.0529 - val_accuracy: 0.9879 - val_loss: 0.0346 - learning_rate: 0.0010
+Epoch 1/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 5s/step - accuracy: 0.9573 - loss: 0.1140
+Epoch 1: val_loss improved from None to 0.04036, saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+
+Epoch 1: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1561s 5s/step - accuracy: 0.9655 - loss: 0.0925 - val_accuracy: 0.9853 - val_loss: 0.0404 - learning_rate: 1.0000e-05
+Epoch 2/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 5s/step - accuracy: 0.9782 - loss: 0.0628
+Epoch 2: val_loss improved from 0.04036 to 0.03057, saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+
+Epoch 2: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1550s 5s/step - accuracy: 0.9791 - loss: 0.0593 - val_accuracy: 0.9904 - val_loss: 0.0306 - learning_rate: 1.0000e-05
+Epoch 3/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 5s/step - accuracy: 0.9857 - loss: 0.0404
+Epoch 3: val_loss improved from 0.03057 to 0.02358, saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+
+Epoch 3: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1552s 5s/step - accuracy: 0.9865 - loss: 0.0394 - val_accuracy: 0.9934 - val_loss: 0.0236 - learning_rate: 1.0000e-05
+Epoch 4/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 5s/step - accuracy: 0.9891 - loss: 0.0320
+Epoch 4: val_loss improved from 0.02358 to 0.02169, saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+
+Epoch 4: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1552s 5s/step - accuracy: 0.9886 - loss: 0.0325 - val_accuracy: 0.9929 - val_loss: 0.0217 - learning_rate: 1.0000e-05
+Epoch 5/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 5s/step - accuracy: 0.9940 - loss: 0.0204
+Epoch 5: val_loss improved from 0.02169 to 0.01779, saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+
+Epoch 5: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1550s 5s/step - accuracy: 0.9925 - loss: 0.0234 - val_accuracy: 0.9944 - val_loss: 0.0178 - learning_rate: 1.0000e-05
+Epoch 6/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 5s/step - accuracy: 0.9922 - loss: 0.0208
+Epoch 6: val_loss improved from 0.01779 to 0.01578, saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+
+Epoch 6: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1552s 5s/step - accuracy: 0.9926 - loss: 0.0216 - val_accuracy: 0.9949 - val_loss: 0.0158 - learning_rate: 1.0000e-05
+Epoch 7/7
+289/289 ━━━━━━━━━━━━━━━━━━━━ 0s 5s/step - accuracy: 0.9947 - loss: 0.0145
+Epoch 7: val_loss improved from 0.01578 to 0.01524, saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+
+Epoch 7: finished saving model to ../results/MRI_cnn_benchmark_results/saved_models/Xception_best.keras
+289/289 ━━━━━━━━━━━━━━━━━━━━ 1550s 5s/step - accuracy: 0.9947 - loss: 0.0150 - val_accuracy: 0.9955 - val_loss: 0.0152 - learning_rate: 1.0000e-05
+62/62 ━━━━━━━━━━━━━━━━━━━━ 168s 3s/step
+
+Results for Xception:
+accuracy: 0.9949
+precision: 0.9946
+recall_sensitivity: 0.9946
+specificity: 0.9952
+f1_score: 0.9946
+roc_auc: 0.9997
+tp: 924
+tn: 1045
+fp: 5
+fn: 5
+model_name: Xception
+training_time_sec: 18547.6954
+
+Final ranking:
+       model_name  accuracy  precision  ...  fp  fn  training_time_sec
+0           VGG16  0.996968   0.995704  ...   4   2       33731.085212
+1      ResNet50V2  0.996463   0.996767  ...   3   4       13843.937688
+2     DenseNet201  0.997979   0.998921  ...   1   3       21920.504314
+3     InceptionV3  0.993936   0.994606  ...   5   7        8785.695244
+4           VGG19  0.994947   0.993555  ...   6   4       41627.486760
+5        Xception  0.994947   0.994618  ...   5   5       18547.695445
+6     MobileNetV2  0.995452   0.997835  ...   2   7        5072.938272
+7     DenseNet121  0.990399   0.988197  ...  11   8       14070.218420
+8  EfficientNetB0  0.993936   0.992481  ...   7   5        7221.861783
+
+[9 rows x 12 columns]
+
+Process finished with exit code 0
+

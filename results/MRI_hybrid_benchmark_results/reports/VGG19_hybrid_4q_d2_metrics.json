@@ -1,0 +1,16 @@
+{
+    "accuracy": 0.9934310257705912,
+    "precision": 0.9914163090128756,
+    "recall_sensitivity": 0.9946178686759957,
+    "specificity": 0.9923809523809524,
+    "f1_score": 0.9930145083288554,
+    "roc_auc": 0.9973981239427956,
+    "tp": 924,
+    "tn": 1042,
+    "fp": 8,
+    "fn": 5,
+    "model_name": "VGG19",
+    "n_qubits": 4,
+    "q_depth": 2,
+    "training_time_sec": 23595.231139183044
+}
