@@ -1,14 +1,29 @@
 import os
-import pandas as pd
+import random
 
-from src import data, train, models
+import warnings
+warnings.filterwarnings("ignore")
+
+import pandas as pd
+import numpy as np
+import tensorflow as tf
+
+from src.train.trainer import train_and_evaluate
+from src.data.splits import make_splits
+from src.data.dataset import OUTPUT_DIR
+from src.configs import SEED, MODEL_NAMES
+
+random.seed(SEED)
+np.random.seed(SEED)
+tf.random.set_seed(SEED)
 
 # RUN ALL MODELS
 all_results = []
 
-for model_name in models.MODEL_NAMES:
+for model_name in MODEL_NAMES:
+    train_df, val_df, test_df = make_splits()
     try:
-        result = train.train_and_evaluate(model_name, data.train_df, data.val_df, data.test_df)
+        result = train_and_evaluate(model_name, train_df, val_df, test_df)
         all_results.append(result)
     except Exception as e:
         print(f"\nModel {model_name} failed with error:")
@@ -24,7 +39,7 @@ if all_results:
         ascending=False
     ).reset_index(drop=True)
 
-    results_df.to_csv(os.path.join(data.OUTPUT_DIR, "cnn_benchmark_summary.csv"), index=False)
+    results_df.to_csv(os.path.join(OUTPUT_DIR, "cnn_benchmark_summary.csv"), index=False)
 
     print("\nFinal ranking:")
     print(results_df[

@@ -1,6 +1,14 @@
 import tensorflow as tf
-from tensorflow.keras import Model
-from tensorflow.keras.layers import Dense, GlobalAveragePooling2D, Dropout, Input
+
+SEED = 42
+
+IMG_SIZE = (224, 224)   # For fairness, I have used same input size for all models.
+BATCH_SIZE = 32
+EPOCHS_HEAD = 8         # training classifier head first
+EPOCHS_FINE = 7         # then fine-tuning upper layers
+LEARNING_RATE_HEAD = 1e-3
+LEARNING_RATE_FINE = 1e-5
+VALID_EXTENSIONS = {".jpg", ".jpeg", ".png", ".bmp"}
 
 #  MODEL LIST
 MODEL_CONFIGS = {
@@ -43,26 +51,3 @@ MODEL_CONFIGS = {
 }
 
 MODEL_NAMES = list(MODEL_CONFIGS.keys())
-
-# BUILD MODEL
-def build_transfer_model(model_name, input_shape=(224, 224, 3), dropout_rate=0.3):
-    config = MODEL_CONFIGS[model_name]
-    base_builder = config["builder"]
-
-    base_model = base_builder(
-        include_top=False,
-        weights="imagenet",
-        input_tensor=Input(shape=input_shape)
-    )
-
-    base_model.trainable = False
-
-    x = base_model.output
-    x = GlobalAveragePooling2D()(x)
-    x = Dropout(dropout_rate)(x)
-    x = Dense(128, activation="relu")(x)
-    x = Dropout(dropout_rate)(x)
-    output = Dense(1, activation="sigmoid")(x)
-
-    model = Model(inputs=base_model.input, outputs=output)
-    return model, base_model

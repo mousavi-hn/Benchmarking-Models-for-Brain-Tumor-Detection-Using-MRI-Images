@@ -2,13 +2,15 @@ import os
 import time
 import json
 
-from data import make_generators, IMG_SIZE, BATCH_SIZE, LEARNING_RATE_HEAD, LEARNING_RATE_FINE, MODEL_DIR, EPOCHS_HEAD, OUTPUT_DIR, EPOCHS_FINE
-from models import build_transfer_model, MODEL_CONFIGS
-from evaluate import calculate_metrics
-from evaluate import plot_history
-
 import tensorflow as tf
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint
+
+from data.loader import make_generators
+from data.dataset import OUTPUT_DIR, MODEL_DIR
+from models.build_models import build_transfer_model, MODEL_CONFIGS
+from evaluate.metrics import calculate_metrics
+from evaluate.plots import plot_history
+from src.configs import IMG_SIZE, BATCH_SIZE, LEARNING_RATE_HEAD, LEARNING_RATE_FINE, EPOCHS_HEAD,  EPOCHS_FINE
 
 # TRAIN AND EVALUATE ONE MODEL
 def train_and_evaluate(model_name, train_df, val_df, test_df):
