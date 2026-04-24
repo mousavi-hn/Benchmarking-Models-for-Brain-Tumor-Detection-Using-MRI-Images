@@ -1,11 +1,27 @@
 import os
 os.environ["KERAS_BACKEND"] = "jax"
 
-import pandas as pd
+import warnings
+warnings.filterwarnings("ignore")
 
-from src.data import OUTPUT_DIR, collect_image_paths, DATASET_DIR, make_splits, DEBUG_SINGLE_MODEL, make_generators, QUANTUM_QUBITS, DEBUG_SINGLE_QUBITS, Q_DEPTH
-from src.models import MODEL_NAMES, MODEL_CONFIGS, find_classical_model_path
-from src.train import train_one_hybrid
+import random
+
+import pandas as pd
+import numpy as np
+
+import keras
+
+from src.data.loader import OUTPUT_DIR, collect_image_paths, DATASET_DIR
+from src.data.splits import  make_splits
+from src.data.dataset import  make_generators
+from src.models.classical import  find_classical_model_path
+from src.train.trainer import train_one_hybrid
+
+import src.configs as cfg
+
+random.seed(cfg.SEED)
+np.random.seed(cfg.SEED)
+keras.utils.set_random_seed(cfg.SEED)
 
 
 def main():
@@ -24,13 +40,11 @@ def main():
 
     all_results = []
 
-    model_names = MODEL_NAMES
-    if DEBUG_SINGLE_MODEL is not None:
-        model_names = [DEBUG_SINGLE_MODEL]
+    model_names = cfg.MODEL_NAMES
 
     for model_name in model_names:
         try:
-            preprocess_func = MODEL_CONFIGS[model_name]["preprocess"]
+            preprocess_func = cfg.MODEL_CONFIGS[model_name]["preprocess"]
             model_path = find_classical_model_path(model_name)
 
             print(f"\nUsing saved classical model: {model_path}")
@@ -42,9 +56,7 @@ def main():
                 test_df=test_df
             )
 
-            qubit_list = QUANTUM_QUBITS
-            if DEBUG_SINGLE_QUBITS is not None:
-                qubit_list = DEBUG_SINGLE_QUBITS
+            qubit_list = cfg.QUANTUM_QUBITS
 
             for n_qubits in qubit_list:
                 try:
@@ -55,7 +67,7 @@ def main():
                         val_seq=val_seq,
                         test_seq=test_seq,
                         n_qubits=n_qubits,
-                        q_depth=Q_DEPTH
+                        q_depth=cfg.Q_DEPTH
                     )
                     all_results.append(result)
                 except Exception as e:

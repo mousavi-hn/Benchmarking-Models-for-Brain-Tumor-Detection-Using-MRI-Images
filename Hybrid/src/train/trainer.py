@@ -5,9 +5,11 @@ import json
 import keras
 from keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint
 
-from data import MODEL_DIR, LEARNING_RATE_HEAD, LEARNING_RATE_FINE, EPOCHS_HEAD, EPOCHS_FINE, REPORT_DIR
-from models import build_hybrid_model, unfreeze_top_fraction, QuantumLayer
-from evaluate import calculate_metrics, predict_on_sequence, plot_history
+from src.data.loader import MODEL_DIR, REPORT_DIR
+from src.models.hybrid import build_hybrid_model, unfreeze_top_fraction, QuantumLayer
+from src.evaluate.metrics import calculate_metrics, predict_on_sequence
+from src.evaluate.plots import plot_history
+from src.configs import LEARNING_RATE_HEAD, LEARNING_RATE_FINE, EPOCHS_HEAD, EPOCHS_FINE
 
 def train_one_hybrid(model_name, model_path, train_seq, val_seq, test_seq, n_qubits, q_depth=2):
     model_tag = f"{model_name}_hybrid_{n_qubits}q_d{q_depth}"
