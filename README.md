@@ -1,8 +1,3 @@
-## First things first! Pretrained models can be found here:
-https://drive.google.com/drive/folders/1aWNdRHJqgsHlvnzahH66naxPWpQ-hzuQ?usp=sharing
-
-* Due to high volume of the trained models, I have shared them in a google drive link! Please feel free to have a look and use the models for your work, in that case I would be glad if you please let me know about it, yet there are no licensing restrictions here, all is my independent work!
-
 # Benchmarking Models for Brain Tumor Detection Using MRI Images
 
 ## Overview
@@ -223,6 +218,13 @@ To answer the dilemma, we can use these pipelines to priorotize the cases, those
 ## Acknowledgments
 
 This project is developed as part of ongoing research and study in machine learning and medical imaging.
+
+---
+
+## Pretrained models can be found here:
+https://drive.google.com/drive/folders/1aWNdRHJqgsHlvnzahH66naxPWpQ-hzuQ?usp=sharing
+
+* Due to high volume of the trained models, I have shared them in a google drive link! Please feel free to have a look and use the models for your work, in that case I would be glad if you please let me know about it, yet there are no licensing restrictions here, all is my independent work!
 
 ---
 
