@@ -175,17 +175,24 @@ To answer the dilemma, we can use these pipelines to priorotize the cases, those
 | model_name     |   fn |   fp |   tn |   tp |   accuracy |   precision |   recall_sensitivity |   specificity |   f1_score |   roc_auc |   n_qubits |   q_depth |   training_time_sec |          model type |
 |:---------------|-----:|-----:|-----:|-----:|-----------:|------------:|---------------------:|--------------:|-----------:|----------:|-----------:|----------:|--------------------:|--------------------:|
 | ResNet50V2     |    1 |    6 | 1044 |  928 |   0.996463 |    0.993576 |             0.998924 |      0.994286 |   0.996243 |  0.996338 |         12 |         2 |            11596.3  |              hybrid |
-| ResNet50V2     |    2 |    7 | 1043 |  927 |   0.995452 |    0.992505 |             0.997847 |      0.993333 |   0.995169 |  0.99892  |          2 |         2 |            10529.8  |              hybrid |
-| ResNet50V2     |    2 |    7 | 1043 |  927 |   0.995452 |    0.992505 |             0.997847 |      0.993333 |   0.995169 |  0.997034 |          6 |         2 |             8652.22 |              hybrid |
-| ResNet50V2     |    2 |    9 | 1041 |  927 |   0.994442 |    0.990385 |             0.997847 |      0.991429 |   0.994102 |  0.999842 |          8 |         2 |             9336.92 |              hybrid |
 | VGG16          |    2 |    4 | 1046 |  927 |   0.996968 |    0.995704 |             0.997847 |      0.99619  |   0.996774 |  0.999958 |       None |      None |             33731.1 |       classical CNN |
-| EfficientNetB0 |    3 |    4 | 1046 |  926 |   0.996463 |    0.995699 |             0.996771 |      0.99619  |   0.996235 |  0.999721 |          4 |         2 |             14118.9 |              hybrid |
-| EfficientNetB0 |    3 |    5 | 1045 |  926 |   0.995958 |    0.994629 |             0.996771 |      0.995238 |   0.995699 |  0.998928 |          6 |         2 |             14906   |              hybrid |
-| EfficientNetB0 |    3 |    4 | 1046 |  926 |   0.996463 |    0.995699 |             0.996771 |      0.99619  |   0.996235 |  0.998993 |          8 |         2 |             14936.8 |              hybrid |
 | DenseNet201    |    3 |    1 | 1049 |  926 |   0.997979 |    0.998921 |             0.996771 |      0.999048 |   0.997845 |  0.999875 |       None |      None |             21920.5 |       classical CNN |
-| VGG16          |    3 |    3 | 1047 |  926 |   0.996968 |    0.996771 |             0.996771 |      0.997143 |   0.996771 |  0.99684  |          4 |         2 |             27213.4 |              hybrid |
+| EfficientNetB0 |    3 |    4 | 1046 |  926 |   0.996463 |    0.995699 |             0.996771 |      0.99619  |   0.996235 |  0.999721 |          4 |         2 |             14118.9 |              hybrid |
+| MobileNetV2    |    3 |   14 | 1036 |  926 |   0.99141  |    0.985106 |             0.996771 |      0.986667 |   0.990904 |  0.999552 |         12 |         2 |            10818.8  |              hybrid |
+| VGG19          |    4 |    6 | 1044 |  925 |   0.994947 |    0.993555 |             0.995694 |      0.994286 |   0.994624 |  0.999836 |       None |      None |             41627.5 |       classical CNN |
+| Xception       |    4 |    8 | 1042 |  925 |   0.993936 |    0.991426 |             0.995694 |      0.992381 |   0.993555 |  0.999489 |          8 |         2 |            36796.1  |              hybrid |
+| InceptionV3    |    5 |    9 | 1041 |  924 |   0.992926 |    0.990354 |             0.994618 |      0.991429 |   0.992481 |  0.992033 |          4 |         2 |             6186.18 |              hybrid |
+| DenseNet121    |    6 |    5 | 1045 |  923 |   0.994442 |    0.994612 |             0.993541 |      0.995238 |   0.994076 |  0.997766 |          6 |         2 |             8926.21 |              hybrid |
+| QNN            |    (TBD!)                                                                                                                                                           
 
-(please notice that although the model names are repetative, the number of qubits/depth is different, in nature, they are different models!)
+
+### Some important points about the table:
+* I compared each model with its hybrid variants, I chose the one which outperforms in terms of lower false negatives
+* Among 9 different models, 6 hybrids were chosen and 3 classical, a signal that emphasizes the future of quantum ML
+* I have provided the full tables with all the variants in TABLES.md, you find it in the main page of repository
+* The interesting part is that I have checked (2,4,6,8,12,16) qubit versions, higher qubits do not mean we are going to have a better model, e.g. EfficientNetB0 with a 4 qubit head excels a 16 qubit head
+* The ultimate goal of the benchmarking is to provide a backbone to an ensemble decision making software, checking the presence of different tumors in the given images, so I kept the list heterogeneous to generalize better
+* More discussion and visualization in the notebooks (will be available soon!)
 
 ## Key Contributions
 
