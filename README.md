@@ -1,13 +1,11 @@
-# Benchmarking-Models-for-Brain-Tumor-Detection-Using-MRI-Images
-
-## Pretrained models can be found here:
+## First things first! Pretrained models can be found here:
 https://drive.google.com/drive/folders/1aWNdRHJqgsHlvnzahH66naxPWpQ-hzuQ?usp=sharing
 
 * Due to high volume of the trained models, I have shared them in a google drive link! Please feel free to have a look and use the models for your work, in that case I would be glad if you please let me know about it, yet there is no licensing restriction here, all is my independent work!
 
-# 🧠 Benchmarking Models for Brain Tumor Detection Using MRI Images
+# Benchmarking Models for Brain Tumor Detection Using MRI Images
 
-## 📌 Overview
+## Overview
 
 This project presents a comprehensive benchmarking framework for brain tumor detection using MRI images. It evaluates multiple deep learning architectures — including classical convolutional neural networks (CNNs) and hybrid quantum-classical models — to analyze their performance, robustness, and scalability.
 
@@ -15,7 +13,7 @@ The goal is to provide a reproducible and extensible pipeline for comparing stat
 
 ---
 
-## 🎯 Objectives
+## Objectives
 
 * Benchmark widely-used CNN architectures for tumor detection
 * Explore hybrid Quantum Neural Network (QNN) + CNN models
@@ -24,7 +22,7 @@ The goal is to provide a reproducible and extensible pipeline for comparing stat
 
 ---
 
-## 🧠 Models Evaluated
+## Models Evaluated
 
 ### Classical Models
 
@@ -43,7 +41,7 @@ The goal is to provide a reproducible and extensible pipeline for comparing stat
 
 ---
 
-## 📊 Evaluation Metrics
+## Evaluation Metrics
 
 Each model is evaluated using:
 
@@ -57,7 +55,7 @@ Each model is evaluated using:
 
 ---
 
-## 🧬 Dataset
+## Dataset
 
 * Brain MRI images for tumor classification
 * Binary classification: **tumor / no tumor**
@@ -67,7 +65,7 @@ Each model is evaluated using:
 
 ---
 
-## ⚙️ Reproducibility
+## Reproducibility
 
 ### 1. Clone the repository
 
@@ -102,7 +100,7 @@ python scripts/train_hybrid.py
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 project/
@@ -116,7 +114,7 @@ project/
 
 ---
 
-## 📈 Results
+## Results
 
 Results are automatically saved as:
 
@@ -136,7 +134,7 @@ results/
 
 ---
 
-## 🔬 Key Contributions
+## Key Contributions
 
 * Unified benchmarking of multiple CNN architectures
 * Integration of hybrid quantum-classical models
@@ -145,7 +143,7 @@ results/
 
 ---
 
-## 🚀 Future Work
+## Future Work
 
 * Tumor segmentation (e.g., U-Net architectures)
 * Model explainability (Grad-CAM, saliency maps)
@@ -154,7 +152,7 @@ results/
 
 ---
 
-## 📚 References
+## References
 
 * Deep Learning for Medical Image Analysis
 * Quantum Machine Learning frameworks (PennyLane, JAX)
@@ -162,13 +160,13 @@ results/
 
 ---
 
-## 🤝 Acknowledgments
+## Acknowledgments
 
 This project is developed as part of ongoing research and study in machine learning and medical imaging.
 
 ---
 
-## 📬 Contact
+## Contact
 
 For questions or collaboration:
 
