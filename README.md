@@ -37,7 +37,7 @@ The goal is to provide a reproducible and extensible pipeline for comparing stat
 ### Hybrid Models
 
 * CNN feature extractor + Quantum layer (PennyLane + JAX)
-* Variable number of qubits and circuit depths
+* Variable number of qubits (2, 4, 6, 8, 12, 16) with depth 2
 
 ---
 
@@ -57,9 +57,12 @@ Each model is evaluated using:
 
 ## Dataset
 
-* Brain MRI images for tumor classification
+* [Brain MRI images for tumor classification](https://www.kaggle.com/datasets/navoneel/brain-mri-images-for-brain-tumor-detection)
+* [brain-tumor-classification-mri](https://www.kaggle.com/datasets/sartajbhuvaji/brain-tumor-classification-mri)
+* [Preprocessed IXI MRI](https://www.kaggle.com/datasets/hamedamin/preprocessed-oasis-and-epilepsy-and-ixi)
 * Binary classification: **tumor / no tumor**
-* Includes additional IXI dataset samples for improved generalization
+* Using the first 2 sources you will have around 5k yes cases and 600 no cases, to generalize and equalize the datasets I used IXI no cases only, at the end around 5k yes and 5k no cases were present in the training!
+* I also used augmentation methods on images (cropping, rotating, etc.) 
 
 > ⚠️ Due to dataset licensing and privacy constraints, the data is not included in this repository.
 
