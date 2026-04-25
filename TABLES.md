@@ -12,6 +12,9 @@
 | MobileNetV2    |    7 |    2 | 1048 |  922 |             0.992465 |   0.995452 |    0.997835 |      0.998095 |   0.995143 |  0.999678 |             5072.94 |
 | DenseNet121    |    8 |   11 | 1039 |  921 |             0.991389 |   0.990399 |    0.988197 |      0.989524 |   0.98979  |  0.999664 |            14070.2  |
 
+---
+
+
 ### Hybrids
 
 #### 2 qubit
@@ -88,63 +91,5 @@
 TBD!
 
 ### QNNs
-
-#### 4 qubit depth 1
-
-TBD!
-
-#### 4 qubit depth 2
-
-TBD!
-
-#### 4 qubit depth 3
-
-TBD!
-
-#### 6 qubit depth 1
-
-TBD!
-
-#### 6 qubit depth 2
-
-TBD!
-
-#### 6 qubit depth 3
-
-TBD!
-
-#### 8 qubit depth 1
-
-TBD!
-
-#### 8 qubit depth 2
-
-TBD!
-
-#### 8 qubit depth 3
-
-TBD!
-
-#### 12 qubit depth 1
-
-TBD!
-
-#### 12 qubit depth 2
-
-TBD!
-
-#### 12 qubit depth 3
-
-TBD!
-
-#### 16 qubit depth 1
-
-TBD!
-
-#### 16 qubit depth 2
-
-TBD!
-
-#### 16 qubit depth 3
 
 TBD!
