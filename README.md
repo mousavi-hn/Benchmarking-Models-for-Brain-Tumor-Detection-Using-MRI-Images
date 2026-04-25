@@ -166,11 +166,11 @@ results/
 
 Here I have shared the summary results, top 10 models, in a table sorted by low to high false negatives!
 
-The important note here is that, as these are vital classification models, then logically false negatives are the worst to happen (meaning there is a cancer, yet the model classifies as no cancer is present). So my endeavour was that to find the models, or a pipeline of models, to make the FNs as low as possible (ideally 0), yet as you may guess, this can not be ensured. 
+The important note here is this: these are vital classification models, logically false negatives are the worst to happen (patient has cancer, yet the model classifies as no cancer is present). So my endeavour was that to find the models, or a pipeline of models, to make the FNs as low as possible (ideally 0), yet as you may guess, this can not be ensured. 
 
-Now the dilemma is this: should we go for adopting such technologies in critical/vital areas like this at all ? What happens if we have even 1 FN, a human life is endagnered, morally disastrous.
+The dilemma is this: should we go for adopting such technologies in critical/vital areas like this at all ? What happens if we have even 1 FN, a human life is endagnered, morally disastrous.
 
-I have an idea, I will explain it shortly, first the table!
+To answer the dilemma, we can use these pipelines to priorotize the cases, those reported with cancer will be dealt with, yet those reported as no cancer will be double checked by the specialist as well, so using engineering techniques not to replace the doctor, but to help them organize the work.
 
 | model_name     |   fn |   fp |   tn |   tp |   accuracy |   precision |   recall_sensitivity |   specificity |   f1_score |   roc_auc |   n_qubits |   q_depth |   training_time_sec |          model type |
 |:---------------|-----:|-----:|-----:|-----:|-----------:|------------:|---------------------:|--------------:|-----------:|----------:|-----------:|----------:|--------------------:|--------------------:|
@@ -185,7 +185,7 @@ I have an idea, I will explain it shortly, first the table!
 | DenseNet201    |    3 |    1 | 1049 |  926 |   0.997979 |    0.998921 |             0.996771 |      0.999048 |   0.997845 |  0.999875 |       None |      None |             21920.5 |       classical CNN |
 | VGG16          |    3 |    3 | 1047 |  926 |   0.996968 |    0.996771 |             0.996771 |      0.997143 |   0.996771 |  0.99684  |          4 |         2 |             27213.4 |              hybrid |
 
-The idea is this, 
+(please notice that although the model names are repetative, the number of qubits/depth is different, in nature, they are different models!)
 
 ## Key Contributions
 
