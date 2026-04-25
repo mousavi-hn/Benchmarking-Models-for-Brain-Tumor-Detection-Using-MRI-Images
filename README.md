@@ -13,9 +13,9 @@ The goal of this project is to provide a reproducible and extensible pipeline fo
 
 ### Whole project in a glance:
 
-Step 1 : Trainin well known CNNs on top of ImageNet using transfer learning technique (VGG16/19, DenseNet121/201, etc.)
-Step 2 : Using the trained models in Step 1 for feature extraction then on top of that having quantum layers based on again transfer learning technique (PennyLane + JAX)
-Step 3 : All quantum approach (TBD)
+* Step 1 : Trainin well known CNNs on top of ImageNet using transfer learning technique (VGG16/19, DenseNet121/201, etc.)
+* Step 2 : Using the trained models in Step 1 for feature extraction then on top of that having quantum layers based on again transfer learning technique (PennyLane + JAX)
+* Step 3 : All quantum approach (TBD)
 
 ---
 
