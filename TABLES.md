@@ -1,3 +1,5 @@
+## All the tables in one place. You can find reports and plots in the results directory as well.
+
 ### CNNs
 
 | model_name     |   fn |   fp |   tn |   tp |   recall_sensitivity |   accuracy |   precision |   specificity |   f1_score |   roc_auc |   training_time_sec |
