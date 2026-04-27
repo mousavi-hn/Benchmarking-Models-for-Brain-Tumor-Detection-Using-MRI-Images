@@ -167,18 +167,18 @@ The dilemma is this: should we go for adopting such technologies in critical/vit
 
 To answer the dilemma, we can use these pipelines to priorotize the cases, those reported with cancer will be dealt with, yet those reported as no cancer will be double checked by the specialist as well, so using engineering techniques not to replace the doctor, but to help them organize the work.
 
-| model_name     |   fn |   fp |   tn |   tp |   accuracy |   precision |   recall_sensitivity |   specificity |   f1_score |   roc_auc |   n_qubits |   q_depth |   training_time_sec |          model type |
-|:---------------|-----:|-----:|-----:|-----:|-----------:|------------:|---------------------:|--------------:|-----------:|----------:|-----------:|----------:|--------------------:|--------------------:|
-| ResNet50V2     |    1 |    6 | 1044 |  928 |   0.996463 |    0.993576 |             0.998924 |      0.994286 |   0.996243 |  0.996338 |         12 |         2 |            11596.3  |              hybrid |
-| VGG16          |    2 |    4 | 1046 |  927 |   0.996968 |    0.995704 |             0.997847 |      0.99619  |   0.996774 |  0.999958 |       None |      None |             33731.1 |       classical CNN |
-| DenseNet201    |    3 |    1 | 1049 |  926 |   0.997979 |    0.998921 |             0.996771 |      0.999048 |   0.997845 |  0.999875 |       None |      None |             21920.5 |       classical CNN |
-| EfficientNetB0 |    3 |    4 | 1046 |  926 |   0.996463 |    0.995699 |             0.996771 |      0.99619  |   0.996235 |  0.999721 |          4 |         2 |             14118.9 |              hybrid |
-| MobileNetV2    |    3 |   14 | 1036 |  926 |   0.99141  |    0.985106 |             0.996771 |      0.986667 |   0.990904 |  0.999552 |         12 |         2 |            10818.8  |              hybrid |
-| VGG19          |    4 |    6 | 1044 |  925 |   0.994947 |    0.993555 |             0.995694 |      0.994286 |   0.994624 |  0.999836 |       None |      None |             41627.5 |       classical CNN |
-| Xception       |    4 |    8 | 1042 |  925 |   0.993936 |    0.991426 |             0.995694 |      0.992381 |   0.993555 |  0.999489 |          8 |         2 |            36796.1  |              hybrid |
-| InceptionV3    |    5 |    9 | 1041 |  924 |   0.992926 |    0.990354 |             0.994618 |      0.991429 |   0.992481 |  0.992033 |          4 |         2 |             6186.18 |              hybrid |
-| DenseNet121    |    6 |    5 | 1045 |  923 |   0.994442 |    0.994612 |             0.993541 |      0.995238 |   0.994076 |  0.997766 |          6 |         2 |             8926.21 |              hybrid |
-| QNN            |    (TBD!)                                                                                                                                                           
+| model_name     | model_type    |   n_qubits |   q_depth |   fn |   fp |   tn |   tp |   training_time_sec |   accuracy |   precision |   recall_sensitivity |   specificity |   f1_score |   roc_auc |
+|:---------------|:--------------|-----------:|----------:|-----:|-----:|-----:|-----:|--------------------:|-----------:|------------:|---------------------:|--------------:|-----------:|----------:|
+| ResNet50V2     | hybrid        |         12 |         2 |    1 |    6 | 1044 |  928 |            11596.3  |   0.996463 |    0.993576 |             0.998924 |      0.994286 |   0.996243 |  0.996338 |
+| VGG16          | classical CNN |        nan |       nan |    2 |    4 | 1046 |  927 |            33731.1  |   0.996968 |    0.995704 |             0.997847 |      0.99619  |   0.996774 |  0.999958 |
+| DenseNet201    | classical CNN |        nan |       nan |    3 |    1 | 1049 |  926 |            21920.5  |   0.997979 |    0.998921 |             0.996771 |      0.999048 |   0.997845 |  0.999875 |
+| EfficientNetB0 | hybrid        |          4 |         2 |    3 |    4 | 1046 |  926 |            14118.9  |   0.996463 |    0.995699 |             0.996771 |      0.99619  |   0.996235 |  0.999721 |
+| MobileNetV2    | hybrid        |         12 |         2 |    3 |   14 | 1036 |  926 |            10818.8  |   0.99141  |    0.985106 |             0.996771 |      0.986667 |   0.990904 |  0.999552 |
+| VGG19          | classical CNN |        nan |       nan |    4 |    6 | 1044 |  925 |            41627.5  |   0.994947 |    0.993555 |             0.995694 |      0.994286 |   0.994624 |  0.999836 |
+| Xception       | hybrid        |          8 |         2 |    4 |    8 | 1042 |  925 |            36796.1  |   0.993936 |    0.991426 |             0.995694 |      0.992381 |   0.993555 |  0.999489 |
+| InceptionV3    | hybrid        |          4 |         2 |    5 |    9 | 1041 |  924 |             6186.18 |   0.992926 |    0.990354 |             0.994618 |      0.991429 |   0.992481 |  0.992033 |
+| DenseNet121    | hybrid        |          6 |         2 |    6 |    5 | 1045 |  923 |             8926.21 |   0.994442 |    0.994612 |             0.993541 |      0.995238 |   0.994076 |  0.997766 |
+| QNN            | TBD!
 
 
 ### Some important points about the table:
