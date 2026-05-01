@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project presents a comprehensive benchmarking framework for brain tumor detection using MRI images. It evaluates multiple deep learning architectures — including classical convolutional neural networks (CNNs), hybrid quantum-classical models and quantum neural networks (QNNs) — to analyze their performance, robustness, and scalability. I used the same data for training/validating/testing of all models, to keep it fair and compare the performance of the models only. So what I was looking for was an answer to this question: we have CNNs ready at our disposal, QNNs are a new trend, is it worth it to go for hybrid QNN-CNN / pure QNN ? Do they give us any advantages ?
+This project presents a comprehensive benchmarking framework for brain tumor detection using MRI images. It evaluates multiple deep learning architectures — including classical convolutional neural networks (CNNs) and hybrid quantum-classical models — to analyze their performance, robustness, and scalability. I used the same data for training/validating/testing of all models, to keep it fair and compare the performance of the models only. So what I was looking for was an answer to this question: we have CNNs ready at our disposal, QNNs are a new trend, is it worth it to go for hybrid QNN-CNN ? Do they give us any advantages ?
 
 The goal of this project is to provide a reproducible and extensible pipeline for comparing state-of-the-art models in medical image classification.
 
@@ -10,7 +10,6 @@ The goal of this project is to provide a reproducible and extensible pipeline fo
 
 * Step 1 : Trainin well known CNNs on top of ImageNet using transfer learning technique (VGG16/19, DenseNet121/201, etc.)
 * Step 2 : Using the trained models in Step 1 for feature extraction then on top of that having quantum layers based on again transfer learning technique (PennyLane + JAX)
-* Step 3 : All quantum approach (TBD)
 
 ---
 
@@ -40,10 +39,6 @@ The goal of this project is to provide a reproducible and extensible pipeline fo
 
 * CNN feature extractor + Quantum layer (PennyLane + JAX)
 * Variable number of qubits (2, 4, 6, 8, 12, 16) with depth 2
-
-### QNN Models
-* QNN feature extractor + Quantum layer (PennyLane + JAX)
-* Variable number of qubits (4,6,8,12,16) and depths (1,2,3)
 
 ---
 
@@ -115,8 +110,7 @@ python scripts/train_hybrid.py
 project/
 │
 ├── CNN/                 
-├── hybrid CNN + QNN/    
-├── QNN/                
+├── hybrid CNN + QNN/                    
 ├── results/             # Outputs (models, plots, reports)
 ```
 
@@ -159,7 +153,7 @@ results/
 
 ## Discussion (most favourite part!)
 
-Here I have shared the summary results, top 10 models, in a table sorted by low to high false negatives!
+Here I have shared the summary results, top 9 models, in a table sorted by low to high false negatives!
 
 The important note here is this: these are vital classification models, logically false negatives are the worst to happen (patient has cancer, yet the model classifies as no cancer is present). So my endeavour was that to find the models, or a pipeline of models, to make the FNs as low as possible (ideally 0), yet as you may guess, this can not be ensured. 
 
@@ -178,7 +172,6 @@ To answer the dilemma, we can use these pipelines to priorotize the cases, those
 | Xception       | hybrid        |          8 |         2 |    4 |    8 | 1042 |  925 |            36796.1  |   0.993936 |    0.991426 |             0.995694 |      0.992381 |   0.993555 |  0.999489 |
 | InceptionV3    | hybrid        |          4 |         2 |    5 |    9 | 1041 |  924 |             6186.18 |   0.992926 |    0.990354 |             0.994618 |      0.991429 |   0.992481 |  0.992033 |
 | DenseNet121    | hybrid        |          6 |         2 |    6 |    5 | 1045 |  923 |             8926.21 |   0.994442 |    0.994612 |             0.993541 |      0.995238 |   0.994076 |  0.997766 |
-| QNN            | TBD!
 
 
 ### Some important points about the table:
@@ -187,7 +180,7 @@ To answer the dilemma, we can use these pipelines to priorotize the cases, those
 * I have provided the full tables with all the variants in TABLES.md, you find it in the main page of repository
 * The interesting part is that I have checked (2,4,6,8,12,16) qubit versions, higher qubits do not mean we are going to have a better model, e.g. EfficientNetB0 with a 4 qubit head excels a 16 qubit head
 * The ultimate goal of the benchmarking is to provide a backbone to an ensemble decision making software, checking the presence of different tumors in the given images, so I kept the list heterogeneous to generalize better
-* More discussion and visualization in the notebooks (will be available soon!)
+* More discussion and visualization in the notebooks
 
 ## Key Contributions
 
