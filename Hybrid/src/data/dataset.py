@@ -4,6 +4,7 @@ import numpy as np
 from loader import read_image
 import src.configs as cfg
 
+
 class MRISequence(keras.utils.Sequence):
     def __init__(self, df, preprocess_func, batch_size=8, target_size=(224, 224), shuffle=False):
         super().__init__()
@@ -39,6 +40,7 @@ class MRISequence(keras.utils.Sequence):
         if self.shuffle:
             rng = np.random.default_rng(cfg.SEED)
             rng.shuffle(self.indices)
+
 
 def make_generators(preprocess_func, train_df, val_df, test_df):
     train_seq = MRISequence(
