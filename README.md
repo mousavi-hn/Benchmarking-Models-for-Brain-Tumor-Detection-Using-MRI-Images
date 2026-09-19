@@ -90,7 +90,7 @@ pip install -r requirements.txt
 * Place images in:
 
 ```
-data/MRI_Images/
+images/MRI_Images/
     ├── yes/
     ├── no/
     └── IXI_no/
