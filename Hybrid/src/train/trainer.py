@@ -1,3 +1,4 @@
+"""Train, fine-tune, evaluate, and persist one hybrid quantum-classical experiment."""
 import os
 import time
 import json
@@ -19,6 +20,20 @@ from src.configs import (
 )
 
 def train_one_hybrid(model_name, model_path, train_seq, val_seq, test_seq, n_qubits, q_depth=2):
+    """Train, fine-tune, and evaluate one hybrid model configuration.
+    
+    Args:
+        model_name: Classical CNN backbone name.
+        model_path: Path to the trained classical model.
+        train_seq: Training data sequence.
+        val_seq: Validation data sequence.
+        test_seq: Test data sequence.
+        n_qubits: Number of qubits in the quantum layer.
+        q_depth: Number of strongly entangling quantum layers.
+    
+    Returns:
+        dict: Evaluation metrics and metadata for the hybrid experiment.
+    """
     model_tag = f"{model_name}_hybrid_{n_qubits}q_d{q_depth}"
     best_model_path = os.path.join(MODEL_DIR, f"{model_tag}.keras")
 

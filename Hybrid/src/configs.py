@@ -1,8 +1,14 @@
+"""Configuration, paths, training hyperparameters, and experiment settings for the hybrid pipeline."""
 import keras
 import os
 from pathlib import Path
 
 def find_absolute_path_to_images():
+    """Resolve the project image directory.
+    
+    Returns:
+        pathlib.Path: Absolute path to the project ``images`` directory.
+    """
     config_file = Path(__file__).resolve()
     proj_root = config_file.parents[2]
     images_dir = proj_root / "images"
@@ -10,16 +16,26 @@ def find_absolute_path_to_images():
     return images_dir
 
 def find_absolute_path_to_results_folder():
+    """Resolve the experiment results directory.
+    
+    Returns:
+        pathlib.Path: Absolute path to the configured results directory.
+    """
     config_file = Path(__file__).resolve()
     proj_root = config_file.parents[2]
-    results_dir = proj_root / "results/MRI_hybrid_benchmark_results"
+    results_dir = proj_root / "results/CT_hybrid_benchmark_results"
 
     return results_dir
 
 def find_absolute_path_to_classical_models():
+    """Resolve the directory containing trained classical models.
+    
+    Returns:
+        pathlib.Path: Absolute path to the classical model directory.
+    """
     config_file = Path(__file__).resolve()
     proj_root = config_file.parents[2]
-    models_dir = proj_root / "results/MRI_cnn_benchmark_results/saved_models"
+    models_dir = proj_root / "results/CT_cnn_benchmark_results/saved_models"
 
 # PATHS AND SETTINGS
 DATASET_DIR = find_absolute_path_to_images()

@@ -1,3 +1,4 @@
+"""Construct transfer-learning CNN models from the configured ImageNet backbones."""
 from tensorflow.keras import Model
 from tensorflow.keras.layers import Dense, GlobalAveragePooling2D, Dropout, Input
 
@@ -5,6 +6,15 @@ from src.configs import MODEL_CONFIGS
 
 # BUILD MODEL
 def build_transfer_model(model_name, input_shape=(224, 224, 3), dropout_rate=0.3):
+    """Build a binary transfer-learning model from a configured CNN backbone.
+    
+    Args:
+        model_name: Name of the configured CNN architecture.
+        input_shape: Input image shape expected by the network.
+    
+    Returns:
+        tuple: Constructed Keras model, backbone model, and preprocessing function.
+    """
     config = MODEL_CONFIGS[model_name]
     base_builder = config["builder"]
 

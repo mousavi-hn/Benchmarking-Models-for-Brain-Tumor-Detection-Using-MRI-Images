@@ -1,3 +1,11 @@
+"""
+Create reproducible MRI training, validation, and test splits.
+
+The MRI dataset combines IXI images with images from other sources. Non-IXI
+images are split with class-label stratification, whereas IXI images are split
+by subject identifier to prevent images from the same subject from appearing
+in multiple dataset partitions.
+"""
 import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -11,6 +19,18 @@ from src.configs import (
 )
 
 def make_splits():
+    """
+    Build and persist MRI training, validation, and test partitions.
+
+    Non-IXI images are split using stratified sampling based on the binary
+    class label. IXI images are split by unique subject identifier so that
+    images belonging to one subject remain within a single partition. The two
+    sources are then merged and written to CSV files.
+
+    Returns:
+        tuple[pandas.DataFrame, pandas.DataFrame, pandas.DataFrame]:
+            Training, validation, and test DataFrames, respectively.
+    """
     full_df = collect_image_paths(DATASET_DIR)
     print("Total images:", len(full_df))
     print(full_df["class_name"].value_counts())

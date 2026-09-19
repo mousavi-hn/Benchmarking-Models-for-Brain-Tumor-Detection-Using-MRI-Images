@@ -1,8 +1,16 @@
+"""Generate and save training-history plots for hybrid experiments."""
 import os
 import matplotlib.pyplot as plt
 from src.configs import PLOT_DIR
 
 def plot_history(history_head, history_fine, model_tag):
+    """Save accuracy and loss curves from the two training stages.
+    
+    Args:
+        history_head: Keras history from classifier/head training.
+        history_fine: Keras history from fine-tuning.
+        model_tag: Identifier used in plot titles and output filenames.
+    """
     acc = history_head.history.get("accuracy", []) + history_fine.history.get("accuracy", [])
     val_acc = history_head.history.get("val_accuracy", []) + history_fine.history.get("val_accuracy", [])
     loss = history_head.history.get("loss", []) + history_fine.history.get("loss", [])

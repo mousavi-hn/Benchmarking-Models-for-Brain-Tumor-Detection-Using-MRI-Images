@@ -1,3 +1,4 @@
+"""Train, fine-tune, evaluate, and persist a classical CNN benchmark model."""
 import os
 import time
 import json
@@ -24,6 +25,17 @@ from src.configs import (
 
 # TRAIN AND EVALUATE ONE MODEL
 def train_and_evaluate(model_name, train_df, val_df, test_df):
+    """Train, fine-tune, and evaluate one classical CNN architecture.
+    
+    Args:
+        model_name: Configured CNN backbone name.
+        train_df: Training split.
+        val_df: Validation split.
+        test_df: Test split.
+    
+    Returns:
+        dict: Evaluation metrics and experiment metadata for the trained model.
+    """
     print(f"\n{'='*60}")
     print(f"Training model: {model_name}")
     print(f"{'='*60}")

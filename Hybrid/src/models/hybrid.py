@@ -1,3 +1,4 @@
+"""Assemble and fine-tune the hybrid CNN and parameterized-quantum-circuit model."""
 import keras
 from keras import layers
 from keras import Model
@@ -8,6 +9,17 @@ from classical import load_feature_extractor
 from src.configs import IMG_SIZE
 
 def build_hybrid_model(model_path, n_qubits, q_depth=2, freeze_backbone=True):
+    """Build a hybrid CNN and parameterized-quantum-circuit classifier.
+    
+    Args:
+        model_path: Path to the trained classical CNN.
+        n_qubits: Number of qubits and projected quantum input features.
+        q_depth: Number of strongly entangling quantum layers.
+        freeze_backbone: Whether to freeze the classical feature extractor initially.
+    
+    Returns:
+        tuple: Hybrid Keras model and its classical feature extractor.
+    """
     feature_extractor = load_feature_extractor(model_path)
     feature_extractor.trainable = not freeze_backbone
 
@@ -29,6 +41,14 @@ def build_hybrid_model(model_path, n_qubits, q_depth=2, freeze_backbone=True):
     return model, feature_extractor
 
 def unfreeze_top_fraction(feature_extractor, fraction=0.30):
+    """Unfreeze the upper fraction of a classical feature extractor.
+    
+    Batch-normalization layers remain frozen for stable fine-tuning.
+    
+    Args:
+        feature_extractor: Keras model whose upper layers will be unfrozen.
+        fraction: Fraction of layers, counted from the top, to make trainable.
+    """
     feature_extractor.trainable = True
     fine_tune_at = int(len(feature_extractor.layers) * (1 - fraction))
 

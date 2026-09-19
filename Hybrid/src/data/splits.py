@@ -1,15 +1,44 @@
+"""
+Create reproducible MRI training, validation, and test splits.
+
+The MRI dataset combines IXI images with images from other sources. Non-IXI
+images are split with class-label stratification, whereas IXI images are split
+by subject identifier to prevent images from the same subject from appearing
+in multiple dataset partitions.
+"""
 import os
-
-from sklearn.model_selection import train_test_split
 import pandas as pd
+from sklearn.model_selection import train_test_split
 
-from src.configs import SEED
-from loader import SPLIT_DIR
+from dataset import collect_image_paths
 
-def make_splits(full_df):
+from src.configs import (
+    SEED,
+    DATASET_DIR,
+    SPLIT_DIR,
+)
+
+def make_splits():
+    """
+    Build and persist MRI training, validation, and test partitions.
+
+    Non-IXI images are split using stratified sampling based on the binary
+    class label. IXI images are split by unique subject identifier so that
+    images belonging to one subject remain within a single partition. The two
+    sources are then merged and written to CSV files.
+
+    Returns:
+        tuple[pandas.DataFrame, pandas.DataFrame, pandas.DataFrame]:
+            Training, validation, and test DataFrames, respectively.
+    """
+    full_df = collect_image_paths(DATASET_DIR)
+    print("Total images:", len(full_df))
+    print(full_df["class_name"].value_counts())
+
     ixi_df = full_df[full_df["source"] == "IXI"].copy()
     other_df = full_df[full_df["source"] != "IXI"].copy()
 
+    # Split non-IXI normally by label ( labels are no and yes, no says there is no cancer and yes the opposite )
     other_train, other_temp = train_test_split(
         other_df,
         test_size=0.30,
@@ -24,6 +53,7 @@ def make_splits(full_df):
         random_state=SEED
     )
 
+    # Split IXI by subject_id
     ixi_subjects = ixi_df[["subject_id"]].drop_duplicates()
 
     ixi_train_subjects, ixi_temp_subjects = train_test_split(
@@ -42,16 +72,14 @@ def make_splits(full_df):
     ixi_val = ixi_df[ixi_df["subject_id"].isin(ixi_val_subjects["subject_id"])]
     ixi_test = ixi_df[ixi_df["subject_id"].isin(ixi_test_subjects["subject_id"])]
 
+    # Merge splits
     train_df = pd.concat([other_train, ixi_train], ignore_index=True)
     val_df = pd.concat([other_val, ixi_val], ignore_index=True)
     test_df = pd.concat([other_test, ixi_test], ignore_index=True)
 
+    # saving CSVs
     train_df.to_csv(os.path.join(SPLIT_DIR, "train_split.csv"), index=False)
     val_df.to_csv(os.path.join(SPLIT_DIR, "val_split.csv"), index=False)
     test_df.to_csv(os.path.join(SPLIT_DIR, "test_split.csv"), index=False)
-
-    train_df = train_df.sample(frac=1, random_state=SEED).reset_index(drop=True)
-    val_df = val_df.sample(frac=1, random_state=SEED).reset_index(drop=True)
-    test_df = test_df.sample(frac=1, random_state=SEED).reset_index(drop=True)
 
     return train_df, val_df, test_df

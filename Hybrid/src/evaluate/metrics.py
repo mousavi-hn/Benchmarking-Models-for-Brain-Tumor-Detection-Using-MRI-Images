@@ -1,3 +1,4 @@
+"""Compute binary-classification metrics and predictions for hybrid models."""
 import numpy as np
 from sklearn.metrics import (
     accuracy_score,
@@ -9,6 +10,17 @@ from sklearn.metrics import (
 )
 
 def calculate_metrics(y_true, y_prob, threshold=0.5):
+    """Calculate binary classification performance metrics.
+    
+    Args:
+        y_true: Ground-truth binary labels.
+        y_prob: Predicted positive-class probabilities.
+        threshold: Probability threshold used to obtain binary predictions.
+    
+    Returns:
+        dict: Accuracy, precision, sensitivity/recall, specificity, F1, ROC-AUC,
+            and confusion-matrix counts.
+    """
     y_pred = (y_prob >= threshold).astype(int)
     tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
 
@@ -33,6 +45,15 @@ def calculate_metrics(y_true, y_prob, threshold=0.5):
     }
 
 def predict_on_sequence(model, sequence):
+    """Run inference over an entire data sequence.
+    
+    Args:
+        model: Trained Keras model.
+        sequence: Iterable yielding image batches and labels.
+    
+    Returns:
+        tuple: Ground-truth labels and predicted probabilities as NumPy arrays.
+    """
     probs = []
     labels = []
 

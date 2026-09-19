@@ -1,3 +1,11 @@
+"""
+Collect MRI image paths and associated dataset metadata.
+
+The MRI dataset contains images from the IXI dataset and additional non-IXI
+sources. Each discovered image is assigned a binary cancer label and source
+identifier. IXI images additionally retain their subject identifier so that
+subject-level splitting can be performed without cross-partition leakage.
+"""
 import os
 from pathlib import Path
 
@@ -6,6 +14,25 @@ import pandas as pd
 from src.configs import VALID_EXTENSIONS
 
 def collect_image_paths(dataset_dir):
+    """
+    Collect MRI image paths, labels, source information, and subject metadata.
+
+    Images under the ``no`` and ``yes`` directories are treated as non-IXI
+    samples and mapped to labels 0 and 1, respectively. Images under
+    ``IXI_no`` are negative samples from the IXI dataset and receive a
+    subject identifier derived from their containing directory.
+
+    Args:
+        dataset_dir: Root directory containing the MRI dataset.
+
+    Returns:
+        pandas.DataFrame: One row per discovered image with filepath, label,
+        class name, source, and subject identifier.
+
+    Raises:
+        FileNotFoundError: If an expected class or IXI directory is missing.
+        ValueError: If no supported image files are found.
+    """
     records = []
 
     class_map = {

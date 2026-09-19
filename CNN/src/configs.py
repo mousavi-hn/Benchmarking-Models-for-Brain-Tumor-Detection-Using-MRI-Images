@@ -1,8 +1,14 @@
+"""Configuration, paths, training hyperparameters, and CNN backbone definitions for the classical pipeline."""
 import os
 import tensorflow as tf
 from pathlib import Path
 
 def find_absolute_path_to_images():
+    """Resolve the project image directory.
+    
+    Returns:
+        pathlib.Path: Absolute path to the project ``images`` directory.
+    """
     config_file = Path(__file__).resolve()
     proj_root = config_file.parents[2]
     images_dir = proj_root / "images"
@@ -10,9 +16,14 @@ def find_absolute_path_to_images():
     return images_dir
 
 def find_absolute_path_to_results_folder():
+    """Resolve the experiment results directory.
+    
+    Returns:
+        pathlib.Path: Absolute path to the configured results directory.
+    """
     config_file = Path(__file__).resolve()
     proj_root = config_file.parents[2]
-    results_dir = proj_root / "results/MRI_cnn_benchmark_results"
+    results_dir = proj_root / "results/CT_cnn_benchmark_results"
 
     return results_dir
 
@@ -29,6 +40,10 @@ os.makedirs(MODEL_DIR, exist_ok=True)
 os.makedirs(PLOT_DIR, exist_ok=True)
 
 SEED = 42
+
+TRAIN_RATIO = 0.70
+VAL_RATIO = 0.15
+TEST_RATIO = 0.15
 
 IMG_SIZE = (224, 224)   # For fairness, I have used same input size for all models.
 BATCH_SIZE = 32

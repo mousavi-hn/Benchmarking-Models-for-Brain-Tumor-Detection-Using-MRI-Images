@@ -1,3 +1,4 @@
+"""Run the hybrid quantum-classical benchmark across CNN backbones and configured qubit counts."""
 import os
 os.environ["KERAS_BACKEND"] = "jax"
 
@@ -31,6 +32,7 @@ keras.utils.set_random_seed(SEED)
 
 
 def main():
+    """Execute the complete hybrid benchmark over configured backbones and qubit widths."""
     full_df = collect_image_paths(DATASET_DIR)
     print("Total images:", len(full_df))
     print(full_df["class_name"].value_counts())

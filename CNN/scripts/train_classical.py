@@ -1,3 +1,4 @@
+"""Run the classical CNN benchmarking pipeline across all configured backbones."""
 import os
 import random
 
