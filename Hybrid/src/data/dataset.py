@@ -1,58 +1,62 @@
-import keras
+import os
+
+from pathlib import Path
+import pandas as pd
+from PIL import Image
 import numpy as np
 
-from loader import read_image
-import src.configs as cfg
+from src.configs import VALID_EXTENSIONS
 
+def collect_image_paths(dataset_dir):
+    records = []
 
-class MRISequence(keras.utils.Sequence):
-    def __init__(self, df, preprocess_func, batch_size=8, target_size=(224, 224), shuffle=False):
-        super().__init__()
-        self.df = df.reset_index(drop=True).copy()
-        self.preprocess_func = preprocess_func
-        self.batch_size = batch_size
-        self.target_size = target_size
-        self.shuffle = shuffle
-        self.indices = np.arange(len(self.df))
-        self.on_epoch_end()
+    class_map = {
+        "no": 0,
+        "yes": 1,
+    }
 
-    def __len__(self):
-        return int(np.ceil(len(self.df) / self.batch_size))
+    for class_name, label in class_map.items():
+        class_dir = os.path.join(dataset_dir, class_name)
+        if not os.path.exists(class_dir):
+            raise FileNotFoundError(f"Folder not found: {class_dir}")
 
-    def __getitem__(self, idx):
-        batch_indices = self.indices[idx * self.batch_size:(idx + 1) * self.batch_size]
-        batch_df = self.df.iloc[batch_indices]
+        for root, _, files in os.walk(class_dir):
+            for file in files:
+                ext = Path(file).suffix.lower()
+                if ext in VALID_EXTENSIONS:
+                    records.append({
+                        "filepath": os.path.join(root, file),
+                        "label": label,
+                        "class_name": class_name,
+                        "source": "non_IXI",
+                        "subject_id": None
+                    })
 
-        images = []
-        labels = []
+    ixi_dir = os.path.join(dataset_dir, "IXI_no")
+    if not os.path.exists(ixi_dir):
+        raise FileNotFoundError(f"Folder not found: {ixi_dir}")
 
-        for _, row in batch_df.iterrows():
-            img = read_image(row["filepath"], self.target_size)
-            img = self.preprocess_func(img)
-            images.append(img)
-            labels.append(float(row["label"]))
+    for root, _, files in os.walk(ixi_dir):
+        for file in files:
+            ext = Path(file).suffix.lower()
+            if ext in VALID_EXTENSIONS:
+                subject_id = Path(root).name
+                records.append({
+                    "filepath": os.path.join(root, file),
+                    "label": 0,
+                    "class_name": "no",
+                    "source": "IXI",
+                    "subject_id": subject_id
+                })
 
-        x = np.asarray(images, dtype=np.float32)
-        y = np.asarray(labels, dtype=np.float32).reshape(-1, 1)
-        return x, y
+    full_df = pd.DataFrame(records)
+    if full_df.empty:
+        raise ValueError("No images found. Check dataset path and file extensions.")
 
-    def on_epoch_end(self):
-        if self.shuffle:
-            rng = np.random.default_rng(cfg.SEED)
-            rng.shuffle(self.indices)
+    return full_df
 
-
-def make_generators(preprocess_func, train_df, val_df, test_df):
-    train_seq = MRISequence(
-        train_df, preprocess_func, batch_size=cfg.BATCH_SIZE,
-        target_size=cfg.IMG_SIZE, shuffle=True
-    )
-    val_seq = MRISequence(
-        val_df, preprocess_func, batch_size=cfg.BATCH_SIZE,
-        target_size=cfg.IMG_SIZE, shuffle=False
-    )
-    test_seq = MRISequence(
-        test_df, preprocess_func, batch_size=cfg.BATCH_SIZE,
-        target_size=cfg.IMG_SIZE, shuffle=False
-    )
-    return train_seq, val_seq, test_seq
+def read_image(path, target_size):
+    img = Image.open(path).convert("RGB")
+    img = img.resize(target_size)
+    arr = np.asarray(img, dtype=np.float32)
+    return arr

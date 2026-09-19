@@ -6,11 +6,21 @@ import tensorflow as tf
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint
 
 from data.loader import make_generators
-from data.dataset import OUTPUT_DIR, MODEL_DIR
-from models.build_models import build_transfer_model, MODEL_CONFIGS
+from models.build_models import build_transfer_model
 from evaluate.metrics import calculate_metrics
 from evaluate.plots import plot_history
-from src.configs import IMG_SIZE, BATCH_SIZE, LEARNING_RATE_HEAD, LEARNING_RATE_FINE, EPOCHS_HEAD,  EPOCHS_FINE
+
+from src.configs import (
+    IMG_SIZE,
+    BATCH_SIZE,
+    LEARNING_RATE_HEAD,
+    LEARNING_RATE_FINE,
+    EPOCHS_HEAD,
+    EPOCHS_FINE,
+    MODEL_CONFIGS,
+    MODEL_DIR,
+    OUTPUT_DIR
+)
 
 # TRAIN AND EVALUATE ONE MODEL
 def train_and_evaluate(model_name, train_df, val_df, test_df):

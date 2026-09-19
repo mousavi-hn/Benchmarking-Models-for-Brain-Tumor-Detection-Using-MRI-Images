@@ -10,8 +10,8 @@ import tensorflow as tf
 
 from src.train.trainer import train_and_evaluate
 from src.data.splits import make_splits
-from src.data.dataset import OUTPUT_DIR
-from src.configs import SEED, MODEL_NAMES
+
+from src.configs import SEED, MODEL_NAMES, OUTPUT_DIR
 
 random.seed(SEED)
 np.random.seed(SEED)

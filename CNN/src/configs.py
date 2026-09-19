@@ -1,4 +1,32 @@
+import os
 import tensorflow as tf
+from pathlib import Path
+
+def find_absolute_path_to_images():
+    config_file = Path(__file__).resolve()
+    proj_root = config_file.parents[2]
+    images_dir = proj_root / "images"
+
+    return images_dir
+
+def find_absolute_path_to_results_folder():
+    config_file = Path(__file__).resolve()
+    proj_root = config_file.parents[2]
+    results_dir = proj_root / "results/MRI_cnn_benchmark_results"
+
+    return results_dir
+
+# PATHS AND SETTINGS
+DATASET_DIR = find_absolute_path_to_images()
+OUTPUT_DIR = find_absolute_path_to_results_folder()
+SPLIT_DIR = os.path.join(OUTPUT_DIR, "splits")
+MODEL_DIR = os.path.join(OUTPUT_DIR, "saved_models")
+PLOT_DIR = os.path.join(OUTPUT_DIR, "plots")
+
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+os.makedirs(SPLIT_DIR, exist_ok=True)
+os.makedirs(MODEL_DIR, exist_ok=True)
+os.makedirs(PLOT_DIR, exist_ok=True)
 
 SEED = 42
 

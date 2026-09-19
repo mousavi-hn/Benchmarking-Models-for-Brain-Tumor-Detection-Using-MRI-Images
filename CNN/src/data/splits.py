@@ -1,11 +1,14 @@
 import os
-
 import pandas as pd
-
 from sklearn.model_selection import train_test_split
 
-from dataset import collect_image_paths, DATASET_DIR, SPLIT_DIR
-from src.configs import SEED
+from dataset import collect_image_paths
+
+from src.configs import (
+    SEED,
+    DATASET_DIR,
+    SPLIT_DIR,
+)
 
 def make_splits():
     full_df = collect_image_paths(DATASET_DIR)
@@ -58,10 +61,5 @@ def make_splits():
     train_df.to_csv(os.path.join(SPLIT_DIR, "train_split.csv"), index=False)
     val_df.to_csv(os.path.join(SPLIT_DIR, "val_split.csv"), index=False)
     test_df.to_csv(os.path.join(SPLIT_DIR, "test_split.csv"), index=False)
-
-    # shuffle rows
-    train_df = train_df.sample(frac=1, random_state=SEED).reset_index(drop=True)
-    val_df = val_df.sample(frac=1, random_state=SEED).reset_index(drop=True)
-    test_df = test_df.sample(frac=1, random_state=SEED).reset_index(drop=True)
 
     return train_df, val_df, test_df

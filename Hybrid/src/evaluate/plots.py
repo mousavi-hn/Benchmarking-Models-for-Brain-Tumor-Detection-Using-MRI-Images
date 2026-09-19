@@ -1,8 +1,6 @@
 import os
-
 import matplotlib.pyplot as plt
-
-from src.data.loader import PLOT_DIR
+from src.configs import PLOT_DIR
 
 def plot_history(history_head, history_fine, model_tag):
     acc = history_head.history.get("accuracy", []) + history_fine.history.get("accuracy", [])

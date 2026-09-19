@@ -11,17 +11,23 @@ import numpy as np
 
 import keras
 
-from src.data.loader import OUTPUT_DIR, collect_image_paths, DATASET_DIR
+from src.data.dataset import collect_image_paths
 from src.data.splits import  make_splits
-from src.data.dataset import  make_generators
+from src.data.loader import  make_generators
 from src.models.classical import  find_classical_model_path
 from src.train.trainer import train_one_hybrid
 
-import src.configs as cfg
+from src.configs import (
+    SEED,
+    MODEL_NAMES,
+    MODEL_CONFIGS,
+    QUANTUM_QUBITS,
+    Q_DEPTH,
+)
 
-random.seed(cfg.SEED)
-np.random.seed(cfg.SEED)
-keras.utils.set_random_seed(cfg.SEED)
+random.seed(SEED)
+np.random.seed(SEED)
+keras.utils.set_random_seed(SEED)
 
 
 def main():
@@ -40,11 +46,11 @@ def main():
 
     all_results = []
 
-    model_names = cfg.MODEL_NAMES
+    model_names = MODEL_NAMES
 
     for model_name in model_names:
         try:
-            preprocess_func = cfg.MODEL_CONFIGS[model_name]["preprocess"]
+            preprocess_func = MODEL_CONFIGS[model_name]["preprocess"]
             model_path = find_classical_model_path(model_name)
 
             print(f"\nUsing saved classical model: {model_path}")
@@ -56,7 +62,7 @@ def main():
                 test_df=test_df
             )
 
-            qubit_list = cfg.QUANTUM_QUBITS
+            qubit_list = QUANTUM_QUBITS
 
             for n_qubits in qubit_list:
                 try:
@@ -67,7 +73,7 @@ def main():
                         val_seq=val_seq,
                         test_seq=test_seq,
                         n_qubits=n_qubits,
-                        q_depth=cfg.Q_DEPTH
+                        q_depth=Q_DEPTH
                     )
                     all_results.append(result)
                 except Exception as e:

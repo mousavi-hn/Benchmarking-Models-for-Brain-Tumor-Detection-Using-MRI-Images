@@ -4,13 +4,14 @@ from keras import Model
 
 from quantum import QuantumLayer
 from classical import load_feature_extractor
-import src.configs as cfg
+
+from src.configs import IMG_SIZE
 
 def build_hybrid_model(model_path, n_qubits, q_depth=2, freeze_backbone=True):
     feature_extractor = load_feature_extractor(model_path)
     feature_extractor.trainable = not freeze_backbone
 
-    inputs = keras.Input(shape=(cfg.IMG_SIZE[0], cfg.IMG_SIZE[1], 3), name="input_image")
+    inputs = keras.Input(shape=(IMG_SIZE[0], IMG_SIZE[1], 3), name="input_image")
     x = feature_extractor(inputs, training=False)
 
     # Compress classical features to match qubit count

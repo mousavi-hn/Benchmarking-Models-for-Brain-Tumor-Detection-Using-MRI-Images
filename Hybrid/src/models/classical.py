@@ -3,7 +3,7 @@ import os
 import keras
 from keras import Model
 
-from src.data.loader import CLASSICAL_MODEL_DIR
+from src.configs import CLASSICAL_MODEL_DIR
 
 def find_classical_model_path(model_name):
     candidates = [

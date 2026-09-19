@@ -5,18 +5,6 @@ import pandas as pd
 
 from src.configs import VALID_EXTENSIONS
 
-# PATHS AND SETTINGS
-DATASET_DIR = "../data/MRI"
-OUTPUT_DIR = "../results/MRI_cnn_benchmark_results"
-SPLIT_DIR = os.path.join(OUTPUT_DIR, "splits")
-MODEL_DIR = os.path.join(OUTPUT_DIR, "saved_models")
-PLOT_DIR = os.path.join(OUTPUT_DIR, "plots")
-
-os.makedirs(OUTPUT_DIR, exist_ok=True)
-os.makedirs(SPLIT_DIR, exist_ok=True)
-os.makedirs(MODEL_DIR, exist_ok=True)
-os.makedirs(PLOT_DIR, exist_ok=True)
-
 def collect_image_paths(dataset_dir):
     records = []
 
